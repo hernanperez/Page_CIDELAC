@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comercializadora Cidelac</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome para los iconos -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+     
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <img src="imagenes/logo.png" alt="Logo Comercializadora CIDELAC" />
+          </div>
+          <nav>
+            <ul>
+              <li><a href="#inicio" class="nav-link active">INICIO</a></li>
+              <li><a href="#empresa" class="nav-link">EMPRESA</a></li>
+              <li><a href="#productos" class="nav-link">PRODUCTOS</a></li>
+              <li><a href="#recetas" class="nav-link">RECETAS</a></li>
+              <li><a href="#blog" class="nav-link">BLOG</a></li>
+              <li><a href="#contacto" class="nav-link">CONTACTO</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- INICIO Section (Hero Slider + Info Cards) -->
+      <section id="inicio" class="section active">
+        <div class="hero-slider">
+          <div
+            class="slide active"
+            style="background-image: url('imagenes/hero1.jpg')"
+            >
+          </div>
+          <div
+            class="slide"
+            style="background-image: url('imagenes/hero2.png')"
+          >
+           
+          </div>
+          <div
+            class="slide"
+            style="background-image: url('imagenes/hero3.jpg')"
+          >
+           
+          </div>
+        </div>
+
+        <div class="info-cards" style="margin-top: 2rem">
+          <div class="info-card">
+            <div class="info-card-icon">
+              <i class="fas fa-gem"></i>
+            </div>
+            <h3>Calidad Garantizada</h3>
+            <p>
+              Productos lácteos frescos y de la más alta calidad para tu
+              familia.
+            </p>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">
+              <i class="fas fa-truck-fast"></i>
+            </div>
+            <h3>Distribución Nacional</h3>
+            <p>
+              Llegamos a todo el país con nuestros productos CIDELAC y MERRY.
+            </p>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <h3>Experiencia</h3>
+            <p>Años de experiencia en el mercado lácteo nos respaldan.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- EMPRESA Section -->
+      <section id="empresa" class="section">
+        <h1>Nuestra Empresa</h1>
+
+        <div class="info-cards">
+          <div class="info-card">
+            <h3>QUIÉNES SOMOS</h3>
+            <p>
+              Somos una empresa empacadora y comercializadora de Leche en Polvo. 
+              Comprometidos con la nutrición de nuestros clientes, suministrando productos de la mejor calidad y altos estándares en el mercado.
+
+            </p>
+          </div>
+          <div class="info-card">
+            <h3>PROPUESTA DE VALOR</h3>
+            <p>
+              Para nosotros es muy importante la satisfacción que representan la calidad de nuestra Leche en Polvo, 
+              el servicio logístico que ofrecemos y el acompañamiento a los clientes que depositan su confianza en COMERCIALIZADORA CIDELAC.
+            </p>
+          </div>
+        </div>
+
+        <div class="mission-vision-box">
+          <h2>MISIÓN</h2>
+          <p>
+            Ser líderes en la distribución y comercialización de leche en polvo, mejorando la alimentación de los hogares, aportando al crecimiento, 
+            desarrollo y nutrición de los niños de Colombia.
+          </p>
+
+          <h2>VISIÓN</h2>
+          <p>
+            Vamos a lograr que Comercializadora Cidelac lidere el mercado de la mano de nuestros proveedores, nuestro talento humano, 
+            impactando la vida y la alimentación de las personas, creciendo, permaneciendo en el tiempo, dejando huella y alcanzado reconocimiento.
+          </p>
+        </div>
+      </section>
+
+      <!-- PRODUCTOS Section -->
+      <section id="productos" class="section">
+        <h1>Nuestros Productos</h1>
+
+        <!-- Added .products-grid for layout -->
+        <div class="products-grid">
+          <div class="product-card">
+            <img src="imagenes/P1.png" alt="Catálogo Cidelac" class="product-image">
+            <h3>CATÁLOGO CIDELAC</h3>
+            <p>
+              Amplia gama de productos lácteos de la marca CIDELAC, reconocida
+              por su calidad y frescura.
+            </p>
+            <!-- These list items will be replaced by modal content -->
+            <!-- <ul>
+              <li>Leche fresca</li>
+              <li>Yogur natural y con sabores</li>
+              <li>Quesos frescos y madurados</li>
+              <li>Mantequilla</li>
+            </ul> -->
+            <button class="btn-ver-mas" data-product-id="cidelac-catalogo">Ver más</button>
+          </div>
+
+          <div class="product-card">
+            <img src="imagenes/P2.png" alt="Productos Merry" class="product-image">
+            <h3>PRODUCTOS MERRY</h3>
+            <p>
+              Línea especial de productos lácteos MERRY, perfectos para toda la
+              familia.
+            </p>
+            <!-- <ul>
+              <li>Leche saborizada</li>
+              <li>Yogurt premium</li>
+              <li>Postres lácteos</li>
+              <li>Bebidas nutritivas</li>
+            </ul> -->
+            <button class="btn-ver-mas" data-product-id="merry-productos">Ver más</button>
+          </div>
+
+          <div class="product-card">
+            <img src="imagenes/cidelac_merry_combinado.jpg" alt="Productos Combinados" class="product-image">
+            <h3>Uno para CIDELAC, MERRY</h3>
+            <p>
+              Productos especiales que combinan lo mejor de ambas marcas para
+              ofrecerte variedad y calidad.
+            </p>
+            <!-- <ul>
+              <li>Combos familiares</li>
+              <li>Paquetes promocionales</li>
+              <li>Productos estacionales</li>
+            </ul> -->
+            <button class="btn-ver-mas" data-product-id="cidelac-merry-combinado">Ver más</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- RECETAS Section -->
+      <section id="recetas" class="section">
+        <h1>Recetas Deliciosas</h1>
+
+        <div class="blog-posts">
+          <div class="blog-post">
+            <h3>Arroz con Leche Tradicional</h3>
+            <div class="blog-date">Receta destacada</div>
+            <p><strong>Ingredientes:</strong></p>
+            <ul>
+              <li>2 tazas de leche CIDELAC</li>
+              <li>1 taza de arroz</li>
+              <li>1/2 taza de azúcar</li>
+              <li>Canela en polvo</li>
+              <li>Esencia de vainilla</li>
+            </ul>
+            <p>
+              <strong>Preparación:</strong> Cocina el arroz en agua hasta que
+              esté tierno. Agrega la leche CIDELAC y cocina a fuego lento. Añade
+              azúcar, canela y vainilla. Cocina hasta obtener la consistencia
+              deseada.
+            </p>
+          </div>
+
+          <div class="blog-post">
+            <h3>Batido Nutritivo MERRY</h3>
+            <div class="blog-date">Receta para niños</div>
+            <p><strong>Ingredientes:</strong></p>
+            <ul>
+              <li>1 vaso de leche MERRY</li>
+              <li>1 plátano maduro</li>
+              <li>2 cucharadas de avena</li>
+              <li>Miel al gusto</li>
+            </ul>
+            <p>
+              <strong>Preparación:</strong> Licúa todos los ingredientes hasta
+              obtener una mezcla homogénea. Sirve frío y disfruta de este
+              nutritivo batido.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      
+
+      <!-- BLOG Section -->
+      <section id="blog" class="section">
+        <h1>Blog</h1>
+
+        <div class="blog-posts">
+          <div class="blog-post">
+            <h3>Beneficios de los Productos Lácteos</h3>
+            <div class="blog-date">Agosto 2025</div>
+            <p>
+              Los productos lácteos son una excelente fuente de calcio,
+              proteínas de alta calidad y vitaminas esenciales. En CIDELAC nos
+              aseguramos de que cada producto mantenga todos sus nutrientes
+              naturales para beneficio de tu familia.
+            </p>
+          </div>
+
+          <div class="blog-post">
+            <h3>Innovación en la Industria Láctea</h3>
+            <div class="blog-date">Julio 2025</div>
+            <p>
+              La industria láctea continúa evolucionando con nuevas tecnologías
+              que garantizan la frescura y calidad de los productos. Conoce más
+              sobre nuestros procesos de calidad en CIDELAC y MERRY.
+            </p>
+          </div>
+
+          <div class="blog-post">
+            <h3>Recetas Saludables para Toda la Familia</h3>
+            <div class="blog-date">Junio 2025</div>
+            <p>
+              Descubre deliciosas recetas que puedes preparar con nuestros
+              productos lácteos. Desde desayunos nutritivos hasta postres
+              saludables, tenemos opciones para todos los gustos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACTO Section -->
+      <section id="contacto" class="section">
+        <h1>Contáctenos</h1>
+
+        <div class="contact-wrapper"> <!-- This wrapper should contain both form and map -->
+          <div class="contact-form-container">
+            <h3>Escríbenos un Mensaje</h3>
+            <p>Completa el formulario y nos pondremos en contacto contigo.</p>
+            <form id="contact-form" action="https://formspree.io/f/xabcd123" method="POST">
+              <div class="form-group">
+                <label for="name">Nombre y Apellido</label>
+                <div class="input-wrapper">
+                  <i class="fas fa-user"></i>
+                  <input type="text" id="name" name="name" placeholder="Ej: Juan Pérez" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <div class="input-wrapper">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+                </div>
+              </div>
+              <div class="form-group">
+                    <label for="phone">Teléfono de Contacto</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" name="phone" placeholder="300 123 4567" required />
+                    </div>
+                </div>
+                
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="country">País</label>
+                  <div class="input-wrapper">
+                    <i class="fas fa-globe-americas"></i>
+                    <input type="text" id="country" name="country" placeholder="Colombia" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="city">Ciudad</label>
+                  <div class="input-wrapper">
+                    <i class="fas fa-city"></i>
+                    <input type="text" id="city" name="city" placeholder="Cartagena" required />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message">Mensaje</label>
+                <div class="input-wrapper textarea-wrapper">
+                  <i class="fas fa-pen"></i>
+                  <textarea id="message" name="message" rows="5" placeholder="Escribe tu consulta aquí..." required></textarea>
+                </div>
+              </div>
+              <button type="submit" class="cta-button">
+                Enviar Mensaje
+              </button>
+            </form>
+          </div>
+
+          <div class="contact-map-container">
+            <h3>Nuestra Ubicación</h3>
+            <iframe
+              src="https://www.google.com/maps?q=Cl.+30+%2332a2,+Br.+El+Prado,+Cartagena+de+Indias,+Provincia+de+Cartagena,+Bolívar&output=embed"
+              width="100%"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+      </section>
+    </main>
+
+    <!-- WhatsApp Button -->
+    <a
+      href="https://wa.me/573001234567"
+      class="whatsapp-btn"
+      title="Chat WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Product Modal Structure -->
+    <div id="productModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div class="modal-body-layout">
+          <div class="modal-image-column">
+            <img id="modal-product-image" src="" alt="Product Image" class="product-image-modal">
+          </div>
+          <div class="modal-text-column">
+            <h2 id="modal-product-title"></h2>
+            <p id="modal-product-description"></p>
+            <ul id="modal-product-features"></ul>
+            <div class="modal-nutritional-info">
+              <h3>Información Nutricional</h3>
+              <ul id="modal-product-nutritional-info"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="wave-container" id="waveContainer">
+        <!-- Onda 1 -->
+        <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
+            <path fill="rgba(7, 140, 3, 0.3)" 
+                  d="M0,60 Q300,0 600,60 T1200,60 L1200,180 L0,180 Z">
+                <animate attributeName="d"
+                         dur="20s"
+                         repeatCount="indefinite"
+                         values="M0,60 Q300,0 600,60 T1200,60 L1200,180 L0,180 Z;
+                                M0,75 Q300,120 600,75 T1200,75 L1200,180 L0,180 Z;
+                                M0,60 Q300,0 600,60 T1200,60 L1200,180 L0,180 Z"/>
+            </path>
+        </svg>
+
+        <!-- Onda 2 -->
+        <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
+            <path fill="rgba(7, 140, 3, 0.5)" 
+                  d="M0,90 Q300,150 600,90 T1200,90 L1200,180 L0,180 Z">
+                <animate attributeName="d"
+                         dur="15s"
+                         repeatCount="indefinite"
+                         values="M0,90 Q300,150 600,90 T1200,90 L1200,180 L0,180 Z;
+                                M0,105 Q300,30 600,105 T1200,105 L1200,180 L0,180 Z;
+                                M0,90 Q300,150 600,90 T1200,90 L1200,180 L0,180 Z"/>
+            </path>
+        </svg>
+
+        <!-- Onda 3 -->
+        <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
+            <path fill="rgba(7, 140, 3, 0.7)" 
+                  d="M0,120 Q300,60 600,120 T1200,120 L1200,180 L0,180 Z">
+                <animate attributeName="d"
+                         dur="18s"
+                         repeatCount="indefinite"
+                         values="M0,120 Q300,60 600,120 T1200,120 L1200,180 L0,180 Z;
+                                M0,135 Q300,195 600,135 T1200,135 L1200,180 L0,180 Z;
+                                M0,120 Q300,60 600,120 T1200,120 L1200,180 L0,180 Z"/>
+            </path>
+        </svg>
+
+        <!-- Onda 4 (Principal) -->
+        <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
+            <path fill="#078C03" 
+                  d="M0,150 Q300,90 600,150 T1200,150 L1200,180 L0,180 Z">
+                <animate attributeName="d"
+                         dur="12s"
+                         repeatCount="indefinite"
+                         values="M0,150 Q300,90 600,150 T1200,150 L1200,180 L0,180 Z;
+                                M0,165 Q300,225 600,165 T1200,165 L1200,180 L0,180 Z;
+                                M0,150 Q300,90 600,150 T1200,150 L1200,180 L0,180 Z"/>
+            </path>
+        </svg>
+    </div>
+
+    <footer>
+      <div class="container_footer">
+        <div class="box_footer box_footer-logo">
+          <div class="logo">
+            <a href="#"><img src="imagenes/logo_white.png" alt="Logo Cidelac" /></a>
+          </div>
+          
+        </div>
+
+         <div class="box_footer">
+          <h2>Empresa</h2>
+          <div class="box_footer-description">
+            <p>
+              Comercializadora de productos lácteos de alta calidad. Frescura y
+              sabor para toda la familia.
+            </p>
+          </div>
+          
+        </div>
+          
+        <div class="box_footer">
+          <h2>Contacto</h2>
+          <p>Cartagena - Bolívar +57  3157546407</p>
+          <p>Medellin - Antioquia +57 3167402991</p>
+          <p>Oriente - Antioqueño +57 3158515745</p>
+          <p>Monteria / Caucasia +57  3021267391</p>
+          <p>Bajo Cauca Antioqueño +57 3244540441 </p>
+          <p>Uraba / Choco +57 3021267390</p>
+          <p>Bucaramanga - Cúcuta +57 3002196903</p>
+        </div>
+        <div class="box_footer box_footer-social">
+          <h2>Redes Sociales</h2>
+          <div class="social-icons">
+            <a
+              href="https://www.facebook.com/profile.php?id=61556734425891"
+              target="_blank"
+              class="social-link facebook"
+              title="Facebook"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/comercializadora_cidelac/"
+              target="_blank"
+              class="social-link instagram"
+              title="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="box_copy">
+        <hr />
+        <p>
+          Todos los derechos reservados © 2025 <b>Comercializadora Cidelac</b>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // --- Navigation ---
+        const navLinks = document.querySelectorAll(".nav-link");
+        const sections = document.querySelectorAll(".section");
+
+        const showSection = (targetId) => {
+          navLinks.forEach((l) => {
+            l.classList.remove("active");
+            if (l.getAttribute("href") === `#${targetId}`) {
+              l.classList.add("active");
+            }
+          });
+          sections.forEach((s) => {
+            if (s.id === targetId) {
+              s.classList.add("active");
+            } else {
+              s.classList.remove("active");
+            }
+          });
+        };
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute("href").substring(1);
+            showSection(targetId);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        });
+
+       
+
+        // --- Hero Slider ---
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".hero-slider .slide");
+        const slideInterval = 5000; // 5 seconds
+
+        function nextSlide() {
+          if (slides.length === 0) return;
+          slides[currentSlide].classList.remove("active");
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.add("active");
+        }
+
+        if (slides.length > 1) {
+          setInterval(nextSlide, slideInterval);
+        }
+
+      });
+    </script>
+
+    <!-- Script para el modal de productos -->
+    <script src="modal.js" defer></script>
+
+  </body>
+</html>
