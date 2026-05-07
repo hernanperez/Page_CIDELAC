@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="comercializadoracidelac, cidelac, leche, lecheenpolvo, lecheentera, hogar, salud, lecheliquida, alimentos, funcional, congelados, bebidas, suplementos, niños, lacteos, nutricion, vacas, jugos, calidad, vasoleche, deliciosa, crema" />
+    <title>Recetas Deliciosas | Comercializadora Cidelac</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome para los iconos -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+     
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <img src="imagenes/LogoCidelac12.png" alt="Logo Comercializadora CIDELAC" />
+          </div>
+          <nav>
+            <ul>
+              <li><a href="index.html" class="nav-link">INICIO</a></li>
+              <li><a href="empresa.html" class="nav-link">EMPRESA</a></li>
+              <li><a href="productos.html" class="nav-link">PRODUCTOS</a></li>
+              <li><a href="recetas.html" class="nav-link active">RECETAS</a></li>
+              <li><a href="tienda.html" class="nav-link">TIENDA VIRTUAL</a></li>
+              <li><a href="blog.html" class="nav-link">BLOG</a></li>
+              <li><a href="contacto.html" class="nav-link">CONTÁCTENOS</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+<section id="recetas" class="section active">
+    <div class="split-section" style="margin-top: 2rem; margin-bottom: 4rem;">
+      <div class="split-image">
+        <div class="placeholder-img" style="height: 250px;">
+          <i class="fas fa-utensils"></i>
+          <span>[Espacio para Imagen: Recetas/Cocina]</span>
+        </div>
+      </div>
+      <div class="split-text">
+        <h1 style="text-align: left; margin-bottom: 1rem;">Recetas con CIDELAC</h1>
+        <p>Descubre formas deliciosas y creativas de integrar nuestros productos en tu día a día. Desde desayunos nutritivos hasta postres increíbles.</p>
+      </div>
+    </div>
+
+    <div class="blog-posts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <div class="info-card" style="padding: 0; text-align: left;">
+        <div class="placeholder-img" style="height: 200px; border-radius: 24px 24px 0 0; border: none;">
+          <i class="fas fa-image"></i>
+          <span>[Imagen: Arroz con Leche]</span>
+        </div>
+        <div style="padding: 2rem;">
+          <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Arroz con Leche Tradicional</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Ingredientes:</strong> 2 tazas de leche CIDELAC, 1 taza de arroz, 1/2 taza de azúcar, canela en polvo y vainilla.</p>
+          <a href="#" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Ver Receta Completa</a>
+        </div>
+      </div>
+
+      <div class="info-card" style="padding: 0; text-align: left;">
+        <div class="placeholder-img" style="height: 200px; border-radius: 24px 24px 0 0; border: none;">
+          <i class="fas fa-image"></i>
+          <span>[Imagen: Batido Nutritivo]</span>
+        </div>
+        <div style="padding: 2rem;">
+          <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Batido Nutritivo MERRY</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Ingredientes:</strong> 1 vaso de leche MERRY, 1 plátano maduro, 2 cucharadas de avena, miel al gusto.</p>
+          <a href="#" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Ver Receta Completa</a>
+        </div>
+      </div>
+    </div>
+</section>
+</main>
+
+    <!-- WhatsApp Button -->
+    <a
+      href="https://wa.me/573001234567"
+      class="whatsapp-btn"
+      title="Chat WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Product Modal Structure -->
+    <div id="productModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div class="modal-body-layout">
+          <div class="modal-image-column">
+            <img id="modal-product-image" src="" alt="Product Image" class="product-image-modal">
+          </div>
+          <div class="modal-text-column">
+            <h2 id="modal-product-title"></h2>
+            <p id="modal-product-description"></p>
+            <ul id="modal-product-features"></ul>
+            <div class="modal-nutritional-info">
+              <h3>Información Nutricional</h3>
+              <ul id="modal-product-nutritional-info"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="wave-container" id="waveContainer">
+        <!-- Onda 1 -->
+        <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
+            <path fill="rgba(7, 140, 3, 0.3)" 
+                  d="M0,60 Q300,0 600,60 T1200,60 L1200,180 L0,180 Z">
+                <animate attributeName="d"
+                         dur="20s"
+                         repeatCount="indefinite"
+                         values="M0,60 Q300,0 600,60 T1200,60 L1200,180 L0,180 Z;
+                                M0,75 Q300,120 600,75 T1200,75 L1200,180 L0,180 Z;
+                                M0,60 Q300,0 600,60 T1200,60 L1200,180 L0,180 Z"/>
+            </path>
+        </svg>
+
+        <!-- Onda 2 -->
+        <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
+            <path fill="rgba(7, 140, 3, 0.5)" 
+                  d="M0,90 Q300,150 600,90 T1200,90 L1200,180 L0,180 Z">
+                <animate attributeName="d"
+                         dur="15s"
+                         repeatCount="indefinite"
+                         values="M0,90 Q300,150 600,90 T1200,90 L1200,180 L0,180 Z;
+                                M0,105 Q300,30 600,105 T1200,105 L1200,180 L0,180 Z;
+                                M0,90 Q300,150 600,90 T1200,90 L1200,180 L0,180 Z"/>
+            </path>
+        </svg>
+
+        <!-- Onda 3 -->
+        <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
+            <path fill="rgba(7, 140, 3, 0.7)" 
+                  d="M0,120 Q300,60 600,120 T1200,120 L1200,180 L0,180 Z">
+                <animate attributeName="d"
+                         dur="18s"
+                         repeatCount="indefinite"
+                         values="M0,120 Q300,60 600,120 T1200,120 L1200,180 L0,180 Z;
+                                M0,135 Q300,195 600,135 T1200,135 L1200,180 L0,180 Z;
+                                M0,120 Q300,60 600,120 T1200,120 L1200,180 L0,180 Z"/>
+            </path>
+        </svg>
+
+        <!-- Onda 4 (Principal) -->
+        <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
+            <path fill="#078C03" 
+                  d="M0,150 Q300,90 600,150 T1200,150 L1200,180 L0,180 Z">
+                <animate attributeName="d"
+                         dur="12s"
+                         repeatCount="indefinite"
+                         values="M0,150 Q300,90 600,150 T1200,150 L1200,180 L0,180 Z;
+                                M0,165 Q300,225 600,165 T1200,165 L1200,180 L0,180 Z;
+                                M0,150 Q300,90 600,150 T1200,150 L1200,180 L0,180 Z"/>
+            </path>
+        </svg>
+    </div>
+
+    <footer>
+      <div class="container_footer">
+        <div class="box_footer box_footer-logo">
+          <div class="logo">
+            <a href="#"><img src="imagenes/LogoCidelac1.png" alt="Logo Cidelac" /></a>
+          </div>
+          
+        </div>
+
+         <div class="box_footer">
+          <h2>Empresa</h2>
+          <div class="box_footer-description">
+            <p>
+              Comercializadora de productos lácteos de alta calidad. Frescura y
+              sabor para toda la familia.
+            </p>
+          </div>
+          
+        </div>
+          
+        <div class="box_footer">
+          <h2>Contacto</h2>
+          <p>Cartagena - Bolívar +57  3157546407</p>
+          <p>Medellin - Antioquia +57 3167402991</p>
+          <p>Oriente - Antioqueño +57 3158515745</p>
+          <p>Monteria / Caucasia +57  3021267391</p>
+          <p>Bajo Cauca Antioqueño +57 3244540441 </p>
+          <p>Uraba / Choco +57 3021267390</p>
+          <p>Bucaramanga - Cúcuta +57 3002196903</p>
+        </div>
+        <div class="box_footer box_footer-social">
+          <h2>Redes Sociales</h2>
+          <div class="social-icons">
+            <a
+              href="https://www.facebook.com/profile.php?id=61556734425891"
+              target="_blank"
+              class="social-link facebook"
+              title="Facebook"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/comercializadora_cidelac/"
+              target="_blank"
+              class="social-link instagram"
+              title="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="box_copy">
+        <hr />
+        <p>
+          Todos los derechos reservados © 2025 <b>Comercializadora Cidelac</b>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+
+       
+
+        // --- Hero Slider ---
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".hero-slider .slide");
+        const slideInterval = 5000; // 5 seconds
+
+        function nextSlide() {
+          if (slides.length === 0) return;
+          slides[currentSlide].classList.remove("active");
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.add("active");
+        }
+
+        if (slides.length > 1) {
+          setInterval(nextSlide, slideInterval);
+        }
+
+      });
+    </script>
+
+    <!-- Script para el modal de productos -->
+    <script src="modal.js" defer></script>
+
+  </body>
+</html>
