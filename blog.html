@@ -19,7 +19,28 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
     <style>
-     
+      .info-card {
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+      }
+      .info-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+      }
+      .card-image-wrapper {
+        position: relative;
+        overflow: hidden;
+        height: 200px;
+        border-radius: 24px 24px 0 0;
+      }
+      .card-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      .info-card:hover .card-image-wrapper img {
+        transform: scale(1.08);
+      }
     </style>
   </head>
   <body>
@@ -35,7 +56,6 @@
               <li><a href="empresa.html" class="nav-link">EMPRESA</a></li>
               <li><a href="productos.html" class="nav-link">PRODUCTOS</a></li>
               <li><a href="recetas.html" class="nav-link">RECETAS</a></li>
-              <li><a href="tienda.html" class="nav-link">TIENDA VIRTUAL</a></li>
               <li><a href="blog.html" class="nav-link active">BLOG</a></li>
               <li><a href="contacto.html" class="nav-link">CONTÁCTENOS</a></li>
             </ul>
@@ -46,41 +66,86 @@
 
     <main class="container">
 <section id="blog" class="section active">
-    <div class="split-section" style="margin-top: 2rem; margin-bottom: 4rem;">
-      <div class="split-text">
-        <h1 style="text-align: left; margin-bottom: 1rem;">Blog y Noticias</h1>
-        <p>Mantente al día con las últimas novedades de CIDELAC, consejos de nutrición y noticias del sector lácteo.</p>
-      </div>
-      <div class="split-image">
-        <div class="placeholder-img" style="height: 200px;">
-          <i class="fas fa-newspaper"></i>
-          <span>[Espacio para Imagen: Banner Blog]</span>
-        </div>
-      </div>
+    <div class="blog-header" style="text-align: center; margin-top: 2rem; margin-bottom: 4rem; padding-top: 2rem;">
+      <h1 style="display: inline-block; position: relative; padding-bottom: 15px; text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary);">
+        Blog y Noticias
+        <span style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 4px; background: var(--primary-gradient); border-radius: 2px;"></span>
+      </h1>
+      <p style="color: var(--text-muted); font-size: 1.25rem; max-width: 850px; margin: 1.5rem auto 0; line-height: 1.8;">
+        Te damos la bienvenida a nuestro espacio informativo y de aprendizaje. Aquí encontrarás las últimas novedades sobre Comercializadora CIDELAC, consejos prácticos de nutrición avalados por profesionales, tendencias y noticias de interés dentro del dinámico sector lácteo global. 
+      </p>
     </div>
 
     <div class="blog-posts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-      <div class="info-card" style="padding: 0; text-align: left;">
-        <div class="placeholder-img" style="height: 200px; border-radius: 24px 24px 0 0; border: none;">
-          <i class="fas fa-image"></i>
-          <span>[Imagen Artículo 1]</span>
+      <!-- Artículo 1 -->
+      <div class="info-card" style="padding: 0; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/beneficios.jpg" alt="Beneficios y Usos de la Leche en Polvo">
         </div>
-        <div style="padding: 2rem;">
-          <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Beneficios de los Productos Lácteos</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Los productos lácteos son una excelente fuente de calcio, proteínas de alta calidad y vitaminas esenciales para tu bienestar diario.</p>
-          <a href="#" style="color: var(--primary); font-weight: 600; text-decoration: none; display: inline-block; transition: transform 0.2s ease;">Leer más <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
+        <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+          <h3 style="color: var(--primary); margin-bottom: 0.75rem; font-size: 1.25rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 3.5rem;">Beneficios y Usos de la Leche en Polvo: Más que un Producto, un Aliado en tu Día a Día</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4rem;">La leche en polvo es mucho más que una alternativa a la leche líquida: es una solución práctica, económica y nutritiva que se adapta al ritmo de vida de las familias modernas.</p>
+          <a class="btn-leer-blog" data-blog-id="beneficios-y-usos" style="color: var(--primary); font-weight: 600; text-decoration: none; display: inline-block; transition: transform 0.2s ease; margin-top: auto; cursor: pointer;">Leer más <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
         </div>
       </div>
 
-      <div class="info-card" style="padding: 0; text-align: left;">
-        <div class="placeholder-img" style="height: 200px; border-radius: 24px 24px 0 0; border: none;">
-          <i class="fas fa-image"></i>
-          <span>[Imagen Artículo 2]</span>
+      <!-- Artículo 2 -->
+      <div class="info-card" style="padding: 0; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/beneficiosA.webp" alt="Beneficios de la Leche en Polvo para la Alimentación Diaria">
         </div>
-        <div style="padding: 2rem;">
-          <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Innovación en la Industria Láctea</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Conoce más sobre las nuevas tecnologías que garantizan la máxima frescura y calidad en los productos empacados CIDELAC y MERRY.</p>
-          <a href="#" style="color: var(--primary); font-weight: 600; text-decoration: none; display: inline-block; transition: transform 0.2s ease;">Leer más <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
+        <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+          <h3 style="color: var(--primary); margin-bottom: 0.75rem; font-size: 1.25rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 3.5rem;">Beneficios de la Leche en Polvo para la Alimentación Diaria</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4rem;">La leche en polvo es uno de los alimentos más prácticos y nutritivos que existen. Conserva gran parte de los nutrientes de la leche fresca, convirtiéndose en una excelente alternativa.</p>
+          <a class="btn-leer-blog" data-blog-id="beneficios-alimentacion-diaria" style="color: var(--primary); font-weight: 600; text-decoration: none; display: inline-block; transition: transform 0.2s ease; margin-top: auto; cursor: pointer;">Leer más <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
+        </div>
+      </div>
+
+      <!-- Artículo 3 -->
+      <div class="info-card" style="padding: 0; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/compra.webp" alt="¿Por Qué Comprar Leche en Polvo?">
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+          <h3 style="color: var(--primary); margin-bottom: 0.75rem; font-size: 1.25rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 3.5rem;">¿Por Qué Comprar Leche en Polvo?</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4rem;">Una alternativa económica y práctica. Comprar leche en polvo se ha convertido en una excelente opción para muchas familias y negocios debido a su practicidad y durabilidad.</p>
+          <a class="btn-leer-blog" data-blog-id="por-que-comprar" style="color: var(--primary); font-weight: 600; text-decoration: none; display: inline-block; transition: transform 0.2s ease; margin-top: auto; cursor: pointer;">Leer más <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
+        </div>
+      </div>
+
+      <!-- Artículo 4 -->
+      <div class="info-card" style="padding: 0; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/beneficiosN.webp" alt="Beneficios nutricionales de la leche en polvo">
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+          <h3 style="color: var(--primary); margin-bottom: 0.75rem; font-size: 1.25rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 3.5rem;">Beneficios nutricionales de la leche en polvo</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4rem;">La leche en polvo es una fuente importante de nutrientes esenciales para el organismo. Conoce qué contiene y cuáles son sus beneficios clave para tu salud diaria.</p>
+          <a class="btn-leer-blog" data-blog-id="beneficios-nutricionales" style="color: var(--primary); font-weight: 600; text-decoration: none; display: inline-block; transition: transform 0.2s ease; margin-top: auto; cursor: pointer;">Leer más <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
+        </div>
+      </div>
+
+      <!-- Artículo 5 -->
+      <div class="info-card" style="padding: 0; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/preparar.webp" alt="Cómo Preparar Correctamente la Leche en Polvo">
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+          <h3 style="color: var(--primary); margin-bottom: 0.75rem; font-size: 1.25rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 3.5rem;">Cómo Preparar Correctamente la Leche en Polvo</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4rem;">Guía fácil paso a paso. Preparar leche en polvo correctamente garantiza una bebida con buen sabor y la consistencia adecuada. Descubre los mejores consejos.</p>
+          <a class="btn-leer-blog" data-blog-id="como-preparar-correctamente" style="color: var(--primary); font-weight: 600; text-decoration: none; display: inline-block; transition: transform 0.2s ease; margin-top: auto; cursor: pointer;">Leer más <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
+        </div>
+      </div>
+
+      <!-- Artículo 6 -->
+      <div class="info-card" style="padding: 0; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/vs.webp" alt="Leche en polvo vs leche líquida: ¿cuál es mejor?">
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+          <h3 style="color: var(--primary); margin-bottom: 0.75rem; font-size: 1.25rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 3.5rem;">Leche en polvo vs leche líquida: ¿cuál es mejor?</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4rem;">Elegir entre leche en polvo y leche líquida depende de las necesidades de cada persona o negocio. Analizamos diferencias de duración, ahorro y desperdicio.</p>
+          <a class="btn-leer-blog" data-blog-id="leche-en-polvo-vs-leche-liquida" style="color: var(--primary); font-weight: 600; text-decoration: none; display: inline-block; transition: transform 0.2s ease; margin-top: auto; cursor: pointer;">Leer más <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
         </div>
       </div>
     </div>
@@ -112,6 +177,22 @@
               <h3>Información Nutricional</h3>
               <ul id="modal-product-nutritional-info"></ul>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog Modal Structure -->
+    <div id="blogModal" class="modal">
+      <div class="modal-content" style="max-width: 800px; padding: 0; overflow: hidden;">
+        <span class="close-button" id="closeBlogModal" style="color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.5); z-index: 1010; top: 15px; right: 25px;">&times;</span>
+        <div id="blog-modal-header-gradient" style="height: 220px; display: flex; align-items: center; justify-content: center; color: white; position: relative;">
+          <i id="blog-modal-icon" class="fas fa-image" style="font-size: 5rem;"></i>
+        </div>
+        <div style="padding: 2.5rem 3rem;">
+          <h2 id="blog-modal-title" style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.8rem; line-height: 1.3;"></h2>
+          <div id="blog-modal-content" style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; max-height: 45vh; overflow-y: auto; padding-right: 1rem;">
+            <!-- Dynamic Content -->
           </div>
         </div>
       </div>
@@ -234,25 +315,273 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // --- Blog Modal Logic ---
+        const blogModal = document.getElementById("blogModal");
+        const closeBlogModalBtn = document.getElementById("closeBlogModal");
+        const blogModalTitle = document.getElementById("blog-modal-title");
+        const blogModalContent = document.getElementById("blog-modal-content");
+        const blogModalHeaderGradient = document.getElementById("blog-modal-header-gradient");
+        const blogModalIcon = document.getElementById("blog-modal-icon");
+        const readMoreBlogButtons = document.querySelectorAll(".btn-leer-blog");
 
-       
+        const blogArticles = {
+          'beneficios-y-usos': {
+            title: 'Beneficios y Usos de la Leche en Polvo: Más que un Producto, un Aliado en tu Día a Día',
+            gradient: 'url("imagenes/beneficios.jpg") center/cover no-repeat',
+            icon: 'hide',
+            content: `
+              <p>La leche en polvo es mucho más que una alternativa a la leche líquida: es una solución práctica, económica y nutritiva que se adapta al ritmo de vida de las familias modernas. En este artículo te contamos por qué tener leche en polvo en casa puede ser una excelente decisión.</p>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">¿Qué es la leche en polvo?</h3>
+              <p>La leche en polvo es simplemente leche fresca a la que se le ha eliminado el contenido de agua mediante un proceso de secado, conservando sus principales nutrientes. Gracias a este proceso, se obtiene un producto fácil de almacenar, transportar y preparar, sin necesidad de refrigeración.</p>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Principales beneficios de la leche en polvo</h3>
+              <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">1. Rica en nutrientes esenciales:</strong> Aporta calcio, proteínas, vitaminas A, D y B12, fundamentales para el crecimiento, el fortalecimiento de huesos y el buen funcionamiento del organismo.</li>
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">2. Larga vida útil:</strong> A diferencia de la leche líquida, puede durar varios meses en buen estado si se conserva en un lugar seco y fresco. ¡Ideal para evitar desperdicios!</li>
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">3. Económica y rendidora:</strong> Rinde más por peso, y al prepararse sólo la cantidad necesaria, se aprovecha al máximo.</li>
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">4. Fácil de transportar y almacenar:</strong> Perfecta para zonas rurales, viajes, campamentos o lugares donde no hay acceso fácil a refrigeración.</li>
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">5. Versátil en la cocina:</strong> Puede usarse para preparar batidos, postres, sopas, panes, arepas, bebidas calientes o frías, y mucho más.</li>
+              </ul>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">¿Cómo puedes usar la leche en polvo?</h3>
+              <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 1.5rem;">
+                <li>Para preparar leche líquida al instante.</li>
+                <li>Como ingrediente en recetas de repostería y panadería.</li>
+                <li>En bebidas energéticas o nutritivas para deportistas o niños.</li>
+                <li>En la elaboración de yogures caseros, avenas y cereales.</li>
+                <li>Para enriquecer comidas infantiles y adultas, aportando mayor valor nutricional.</li>
+              </ul>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Un básico en tu despensa</h3>
+              <p>Ya sea que busques practicidad, nutrición o una opción confiable para el día a día, la leche en polvo es un producto que no puede faltar en tu hogar. En nuestra tienda, ofrecemos leche en polvo de la más alta calidad, con excelente sabor y a precios que cuidan tu bolsillo.</p>
+              <p><strong>¡Anímate a probarla y descubre todo lo que puedes hacer con ella!</strong></p>
+            `
+          },
+          'beneficios-alimentacion-diaria': {
+            title: 'Beneficios de la Leche en Polvo para la Alimentación Diaria',
+            gradient: 'url("imagenes/beneficiosA.webp") center/cover no-repeat',
+            icon: 'hide',
+            content: `
+              <p><strong>La leche en polvo: nutrición práctica para toda la familia</strong></p>
+              <p>La leche en polvo es uno de los alimentos más prácticos y nutritivos que existen. Gracias a su proceso de deshidratación, conserva gran parte de los nutrientes de la leche fresca, convirtiéndose en una excelente alternativa para el consumo diario.</p>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Principales beneficios de la leche en polvo</h3>
+              <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">1. Rica en calcio:</strong> El calcio es fundamental para el fortalecimiento de los huesos y dientes, especialmente en niños y adultos mayores.</li>
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">2. Fuente de proteínas:</strong> Las proteínas de la leche ayudan a la formación y reparación de tejidos del cuerpo.</li>
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">3. Larga duración:</strong> A diferencia de la leche líquida, la leche en polvo tiene mayor tiempo de conservación.</li>
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">4. Fácil almacenamiento:</strong> No necesita refrigeración antes de prepararse.</li>
+              </ul>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">La leche en polvo es perfecta para preparar:</h3>
+              <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 1.5rem;">
+                <li>Bebidas nutritivas</li>
+                <li>Batidos</li>
+                <li>Postres</li>
+                <li>Recetas de repostería</li>
+              </ul>
+              <p>Además, es un producto práctico para hogares, restaurantes y negocios de alimentos.</p>
+            `
+          },
+          'por-que-comprar': {
+            title: '¿Por Qué Comprar Leche en Polvo?',
+            gradient: 'url("imagenes/compra.webp") center/cover no-repeat',
+            icon: 'hide',
+            content: `
+              <p><strong>Una alternativa económica y práctica</strong></p>
+              <p>Comprar leche en polvo se ha convertido en una excelente opción para muchas familias y negocios debido a su practicidad, durabilidad y facilidad de uso. A diferencia de la leche líquida, no requiere refrigeración antes de ser preparada, lo que la convierte en una solución ideal para optimizar el consumo y reducir pérdidas. Además, su larga vida útil permite tener siempre disponible un producto nutritivo en casa o en el negocio, evitando compras constantes y facilitando la planificación.</p>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Ventajas de la leche en polvo</h3>
+              <p>La leche entera en polvo ofrece múltiples beneficios que la hacen destacar frente a otras opciones:</p>
+              <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 1.5rem;">
+                <li><strong>Mayor duración que la leche líquida:</strong> Puede conservarse por meses en buen estado si se almacena correctamente.</li>
+                <li><strong>Fácil transporte:</strong> Su presentación en polvo facilita el manejo y reduce costos logísticos.</li>
+                <li><strong>Ideal para almacenamiento:</strong> No necesita refrigeración mientras esté sellada.</li>
+                <li><strong>Menor desperdicio:</strong> Preparas solo la cantidad que necesitas.</li>
+                <li><strong>Versatilidad:</strong> Puede utilizarse tanto en bebidas como en recetas.</li>
+                <li><strong>Ahorro económico:</strong> Rinde más y permite optimizar el presupuesto familiar o empresarial.</li>
+              </ul>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Perfecta para negocios</h3>
+              <p>La leche en polvo es ampliamente utilizada en diferentes sectores gracias a su rendimiento y facilidad de uso:</p>
+              <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 1.5rem;">
+                <li>Panaderías</li>
+                <li>Cafeterías</li>
+                <li>Restaurantes</li>
+                <li>Pastelerías</li>
+                <li>Fábricas de alimentos</li>
+              </ul>
+              <p>Su practicidad permite mantener una producción constante sin preocuparse por el vencimiento rápido, como ocurre con la leche líquida. Además, facilita la estandarización de recetas, garantizando siempre el mismo sabor y calidad.</p>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Versatilidad en la cocina</h3>
+              <p>Una de las mayores ventajas de la leche en polvo es que se adapta a múltiples preparaciones. Puedes usarla para:</p>
+              <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 1.5rem;">
+                <li>Preparar leche líquida al instante</li>
+                <li>Elaborar postres como natilla, arroz con leche o arequipe</li>
+                <li>Hacer batidos y bebidas</li>
+                <li>Preparar salsas, cremas y sopas</li>
+                <li>Incluirla en recetas de panadería</li>
+              </ul>
+              <p>Esto la convierte en un ingrediente indispensable tanto en el hogar como en negocios gastronómicos.</p>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Aporte nutricional</h3>
+              <p>La leche entera en polvo conserva gran parte de los nutrientes esenciales de la leche fresca, como:</p>
+              <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 1.5rem;">
+                <li>Calcio</li>
+                <li>Proteínas</li>
+                <li>Vitaminas (A, D y complejo B)</li>
+                <li>Energía necesaria para el día a día</li>
+              </ul>
+              <p>Es una excelente opción para niños, adultos y personas que buscan una alimentación balanceada.</p>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Una elección inteligente</h3>
+              <p>Elegir leche en polvo no solo es una decisión práctica, sino también estratégica. Ya sea para el hogar o para tu negocio, te permite ahorrar, optimizar recursos y garantizar siempre disponibilidad.</p>
+              <p>Si buscas calidad, rendimiento y economía, la leche entera en polvo es sin duda una de las mejores alternativas del mercado.</p>
+            `
+          },
+          'beneficios-nutricionales': {
+            title: 'Beneficios nutricionales de la leche en polvo',
+            gradient: 'url("imagenes/beneficiosN.webp") center/cover no-repeat',
+            icon: 'hide',
+            content: `
+              <p>La leche en polvo es una fuente importante de nutrientes esenciales para el organismo.</p>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Nutrientes que contiene</h3>
+              <p>Entre los más importantes se encuentran:</p>
+              <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 1.5rem;">
+                <li>Proteínas</li>
+                <li>Calcio</li>
+                <li>Vitaminas A y D</li>
+                <li>Potasio</li>
+                <li>Fósforo</li>
+              </ul>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Beneficios para la salud</h3>
+              <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">Fortalece los huesos:</strong> El calcio ayuda a mantener huesos y dientes fuertes.</li>
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">Fuente de energía:</strong> Las proteínas y carbohidratos aportan energía al cuerpo.</li>
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">Ideal para todas las edades:</strong> Niños, adultos y adultos mayores pueden beneficiarse de su consumo.</li>
+              </ul>
+              <p>La leche en polvo es una excelente alternativa para complementar la alimentación diaria.</p>
+            `
+          },
+          'como-preparar-correctamente': {
+            title: 'Cómo Preparar Correctamente la Leche en Polvo',
+            gradient: 'url("imagenes/preparar.webp") center/cover no-repeat',
+            icon: 'hide',
+            content: `
+              <p><strong>Guía fácil paso a paso</strong></p>
+              <p>Preparar leche en polvo correctamente garantiza una bebida con buen sabor y la consistencia adecuada.</p>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Ingredientes</h3>
+              <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 1.5rem;">
+                <li>1 vaso de agua</li>
+                <li>2 a 3 cucharadas de leche en polvo</li>
+              </ul>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Preparación</h3>
+              <ol style="padding-left: 20px; margin-bottom: 1.5rem;">
+                <li style="margin-bottom: 0.5rem;">Calentar o usar agua tibia.</li>
+                <li style="margin-bottom: 0.5rem;">Agregar la leche en polvo poco a poco.</li>
+                <li style="margin-bottom: 0.5rem;">Mezclar bien hasta disolver completamente.</li>
+              </ol>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Consejos</h3>
+              <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 1.5rem;">
+                <li>Utilizar agua tibia evita los grumos.</li>
+                <li>Mezclar bien antes de consumir.</li>
+              </ul>
+            `
+          },
+          'leche-en-polvo-vs-leche-liquida': {
+            title: 'Leche en polvo vs leche líquida: ¿cuál es mejor?',
+            gradient: 'url("imagenes/vs.webp") center/cover no-repeat',
+            icon: 'hide',
+            content: `
+              <p>Elegir entre leche en polvo y leche líquida depende de las necesidades de cada persona o negocio. Ambas opciones ofrecen beneficios importantes, pero conocer sus diferencias te ayudará a tomar una mejor decisión de compra. Ambas provienen de la leche natural y aportan nutrientes esenciales como calcio, proteínas y vitaminas. Sin embargo, su forma de conservación, uso y duración marcan grandes diferencias.</p>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Principales diferencias</h3>
+              <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">1. Duración y conservación:</strong> La leche líquida tiene una vida útil corta y requiere refrigeración constante. En cambio, la leche en polvo puede durar meses sin necesidad de frío mientras esté bien almacenada, lo que la convierte en una opción mucho más práctica.</li>
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">2. Almacenamiento:</strong> La leche líquida ocupa más espacio y necesita cadena de frío. La leche en polvo, por su formato compacto, es fácil de guardar y transportar, ideal para hogares con poco espacio o negocios que manejan inventario.</li>
+                <li style="margin-bottom: 1rem;"><strong style="color: var(--primary);">3. Preparación y uso:</strong> La leche líquida está lista para consumir. La leche en polvo requiere preparación con agua, pero esto permite ajustar la cantidad según la necesidad, evitando desperdicios.</li>
+              </ul>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Desperdicio</h3>
+              <p>Con la leche líquida es común que se dañe si no se consume a tiempo. La leche en polvo permite preparar solo lo necesario, reduciendo pérdidas y optimizando el consumo.</p>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">¿Cuál es más económica?</h3>
+              <p>La leche en polvo suele ser más rentable a largo plazo. Su alto rendimiento permite obtener más litros a partir de una menor cantidad de producto, lo que la hace ideal tanto para familias como para negocios. Además, al evitar el desperdicio, se traduce en un ahorro real en el presupuesto.</p>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">¿Cuál conviene más para negocios?</h3>
+              <p>Para negocios como panaderías, cafeterías o restaurantes, la leche en polvo es una excelente elección porque:</p>
+              <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 1.5rem;">
+                <li>Permite controlar mejor las cantidades</li>
+                <li>Reduce costos de almacenamiento</li>
+                <li>Evita pérdidas por vencimiento</li>
+                <li>Garantiza disponibilidad constante</li>
+                <li>Facilita la estandarización de recetas</li>
+              </ul>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Ideal para diferentes estilos de vida</h3>
+              <p>La leche en polvo es perfecta para:</p>
+              <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 1.5rem;">
+                <li>Zonas donde la refrigeración es limitada</li>
+                <li>Personas que compran en grandes cantidades</li>
+                <li>Hogares que buscan practicidad</li>
+                <li>Negocios que necesitan eficiencia y ahorro</li>
+              </ul>
+              <p>Por otro lado, la leche líquida puede ser preferida por quienes buscan consumo inmediato y no desean preparación previa.</p>
+              
+              <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">Conclusión: ¿cuál es mejor?</h3>
+              <p>No se trata de cuál es mejor en términos absolutos, sino de cuál se adapta mejor a tus necesidades.</p>
+              <p>Si buscas comodidad inmediata, la leche líquida es una buena opción. Pero si buscas durabilidad, ahorro, practicidad y menor desperdicio, la leche en polvo es sin duda la mejor alternativa.</p>
+            `
+          }
+        };
 
-        // --- Hero Slider ---
-        let currentSlide = 0;
-        const slides = document.querySelectorAll(".hero-slider .slide");
-        const slideInterval = 5000; // 5 seconds
-
-        function nextSlide() {
-          if (slides.length === 0) return;
-          slides[currentSlide].classList.remove("active");
-          currentSlide = (currentSlide + 1) % slides.length;
-          slides[currentSlide].classList.add("active");
+        function openBlogModal(blogId) {
+          const article = blogArticles[blogId];
+          if (article) {
+            blogModalTitle.textContent = article.title;
+            blogModalContent.innerHTML = article.content;
+            blogModalHeaderGradient.style.background = article.gradient;
+            
+            if (article.icon === 'hide' || !article.icon) {
+              blogModalIcon.style.display = 'none';
+            } else {
+              blogModalIcon.style.display = 'block';
+              blogModalIcon.className = article.icon;
+            }
+            
+            blogModal.classList.add("active");
+            document.body.style.overflow = "hidden"; // Prevent background scrolling
+          }
         }
 
-        if (slides.length > 1) {
-          setInterval(nextSlide, slideInterval);
+        function closeBlogModal() {
+          blogModal.classList.remove("active");
+          document.body.style.overflow = ""; // Restore background scrolling
         }
 
+        readMoreBlogButtons.forEach(button => {
+          button.addEventListener("click", function (e) {
+            e.preventDefault();
+            const blogId = this.getAttribute("data-blog-id");
+            openBlogModal(blogId);
+          });
+        });
+
+        if (closeBlogModalBtn) {
+          closeBlogModalBtn.addEventListener("click", closeBlogModal);
+        }
+
+        window.addEventListener("click", function (event) {
+          if (event.target === blogModal) {
+            closeBlogModal();
+          }
+        });
       });
     </script>
 

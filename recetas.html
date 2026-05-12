@@ -19,7 +19,58 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
     <style>
-     
+      .tabs-container {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+      }
+      .tab-btn {
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--glass-border);
+        color: var(--text-muted);
+        padding: 0.8rem 2.2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      }
+      .tab-btn:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        transform: translateY(-2px);
+      }
+      .tab-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        box-shadow: 0 8px 25px rgba(7, 140, 3, 0.3);
+      }
+      .card-image-wrapper {
+        position: relative;
+        overflow: hidden;
+        height: 200px;
+        border-radius: 24px 24px 0 0;
+      }
+      .card-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      .info-card:hover .card-image-wrapper img {
+        transform: scale(1.08);
+      }
+      .recipe-card {
+        transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease;
+        opacity: 1;
+        transform: translateY(0);
+      }
     </style>
   </head>
   <body>
@@ -35,7 +86,6 @@
               <li><a href="empresa.html" class="nav-link">EMPRESA</a></li>
               <li><a href="productos.html" class="nav-link">PRODUCTOS</a></li>
               <li><a href="recetas.html" class="nav-link active">RECETAS</a></li>
-              <li><a href="tienda.html" class="nav-link">TIENDA VIRTUAL</a></li>
               <li><a href="blog.html" class="nav-link">BLOG</a></li>
               <li><a href="contacto.html" class="nav-link">CONTÁCTENOS</a></li>
             </ul>
@@ -48,10 +98,7 @@
 <section id="recetas" class="section active">
     <div class="split-section" style="margin-top: 2rem; margin-bottom: 4rem;">
       <div class="split-image">
-        <div class="placeholder-img" style="height: 250px;">
-          <i class="fas fa-utensils"></i>
-          <span>[Espacio para Imagen: Recetas/Cocina]</span>
-        </div>
+        <img src="imagenes/receta.jpg" alt="Recetas - Comercializadora Cidelac" />
       </div>
       <div class="split-text">
         <h1 style="text-align: left; margin-bottom: 1rem;">Recetas con CIDELAC</h1>
@@ -59,30 +106,272 @@
       </div>
     </div>
 
+    <div class="tabs-container">
+      <button class="tab-btn active" data-tab="tradicional" onclick="switchCategory('tradicional')">Recetas Tradicionales</button>
+      <button class="tab-btn" data-tab="airfryer" onclick="switchCategory('airfryer')">Recetas Freidora de Aire</button>
+    </div>
+
     <div class="blog-posts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-      <div class="info-card" style="padding: 0; text-align: left;">
-        <div class="placeholder-img" style="height: 200px; border-radius: 24px 24px 0 0; border: none;">
-          <i class="fas fa-image"></i>
-          <span>[Imagen: Arroz con Leche]</span>
+      <div class="info-card recipe-card" data-category="tradicional" style="padding: 0; text-align: left;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/arequipe.jpg" alt="Arequipe Casero Con Leche En Polvo" />
         </div>
-        <div style="padding: 2rem;">
-          <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Arroz con Leche Tradicional</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Ingredientes:</strong> 2 tazas de leche CIDELAC, 1 taza de arroz, 1/2 taza de azúcar, canela en polvo y vainilla.</p>
-          <a href="#" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Ver Receta Completa</a>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Arequipe Casero Con Leche En Polvo</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 2 tazas de leche en polvo, 2 tazas de azúcar, 1 taza de agua, 1 cucharada de mantequilla...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-arequipe-casero-con-leche-en-polvo" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
         </div>
       </div>
 
-      <div class="info-card" style="padding: 0; text-align: left;">
-        <div class="placeholder-img" style="height: 200px; border-radius: 24px 24px 0 0; border: none;">
-          <i class="fas fa-image"></i>
-          <span>[Imagen: Batido Nutritivo]</span>
+      <div class="info-card recipe-card" data-category="tradicional" style="padding: 0; text-align: left;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/helado.jpg" alt="Helado Cremoso De Vainilla" />
         </div>
-        <div style="padding: 2rem;">
-          <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Batido Nutritivo MERRY</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Ingredientes:</strong> 1 vaso de leche MERRY, 1 plátano maduro, 2 cucharadas de avena, miel al gusto.</p>
-          <a href="#" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Ver Receta Completa</a>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Helado Cremoso De Vainilla</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de leche en polvo, 2 tazas de agua fría, ½ taza de azúcar, 1 cucharadita de vainilla...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-helado-cremoso-de-vainilla" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
         </div>
       </div>
+
+      <div class="info-card recipe-card" data-category="tradicional" style="padding: 0; text-align: left;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/galletas.jpg" alt="Galletas Suaves Con Leche En Polvo" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Galletas Suaves Con Leche En Polvo</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de leche en polvo, 1 taza de harina de trigo, ½ taza de mantequilla, ½ taza de azúcar...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-galletas-suaves-con-leche-en-polvo" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="tradicional" style="padding: 0; text-align: left;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/trufas.jpg" alt="Trufas De Leche En Polvo" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Trufas De Leche En Polvo</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de leche en polvo, ½ taza de leche condensada, ½ taza de coco rallado, 1 cucharada de mantequilla</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-trufas-de-leche-en-polvo" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="tradicional" style="padding: 0; text-align: left;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/flan.jpg" alt="Flan Cremoso" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Flan Cremoso</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de leche en polvo, 1 taza de agua, 3 huevos, ½ taza de azúcar...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-flan-cremoso" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="tradicional" style="padding: 0; text-align: left;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/arroz.jpg" alt="Arroz Con Leche Cremoso" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Arroz Con Leche Cremoso</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de arroz, 3 tazas de agua, 1 taza de leche líquida, 3 cucharadas de leche en polvo...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-arroz-con-leche-cremoso" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="tradicional" style="padding: 0; text-align: left;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/batido.jpg" alt="Batido Energético De Banano" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Batido Energético De Banano</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 banano maduro, 2 cucharadas de leche en polvo, 1 vaso de agua o leche, 1 cucharada de miel</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-batido-energetico-de-banano" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="tradicional" style="padding: 0; text-align: left;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/dulce.jpg" alt="Dulce Tipo Fudge" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Dulce Tipo Fudge</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 2 tazas de leche en polvo, 1 taza de azúcar pulverizada, ½ taza de leche líquida, 1 cucharada de mantequilla</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-dulce-tipo-fudge" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="tradicional" style="padding: 0; text-align: left;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/pancakes.jpg" alt="Pancakes Esponjosos" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Pancakes Esponjosos</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de harina de trigo, 2 cucharadas de leche en polvo, 1 huevo, 1 taza de agua o leche...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-pancakes-esponjosos" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="tradicional" style="padding: 0; text-align: left;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/chocolate.jpg" alt="Chocolate Caliente Cremoso" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Chocolate Caliente Cremoso</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de agua o leche, 2 cucharadas de leche en polvo, 1 cucharada de cocoa o chocolate en polvo, azúcar al gusto</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-chocolate-caliente-cremoso" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="airfryer" style="padding: 0; text-align: left; display: none;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/galletaaire.jpg" alt="Galletas De Leche En Polvo" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Galletas De Leche En Polvo (Air Fryer)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de leche en polvo, 1 taza de harina de trigo, ½ taza de mantequilla, ½ taza de azúcar...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-galletas-de-leche-en-polvo-airfryer" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="airfryer" style="padding: 0; text-align: left; display: none;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/donitas.jpg" alt="Donitas De Leche En Polvo" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Donitas De Leche En Polvo (Air Fryer)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de harina, ½ taza de leche en polvo, ¼ taza de azúcar, 1 huevo...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-donitas-de-leche-en-polvo-airfryer" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="airfryer" style="padding: 0; text-align: left; display: none;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/bizcochuelo.jpg" alt="Bizcochuelo Rápido" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Bizcochuelo Rápido (Air Fryer)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de harina, ½ taza de leche en polvo, ½ taza de azúcar, 2 huevos...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-bizcochuelo-rapido-airfryer" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="airfryer" style="padding: 0; text-align: left; display: none;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/pancakes2.jpg" alt="Pancakes Esponjosos" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Pancakes Esponjosos (Air Fryer)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de harina, 2 cucharadas de leche en polvo, 1 huevo, 1 taza de leche...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-pancakes-esponjosos-airfryer" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="airfryer" style="padding: 0; text-align: left; display: none;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/muffins.jpg" alt="Muffins De Vainilla" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Muffins De Vainilla (Air Fryer)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de harina, ½ taza de leche en polvo, ½ taza de azúcar, 1 huevo...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-muffins-de-vainilla-airfryer" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="airfryer" style="padding: 0; text-align: left; display: none;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/pastel.jpg" alt="Pastel De Leche En Polvo" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Pastel De Leche En Polvo (Air Fryer)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de leche en polvo, 1 taza de harina, ½ taza de azúcar, 2 huevos...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-pastel-de-leche-en-polvo-airfryer" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="airfryer" style="padding: 0; text-align: left; display: none;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/pandulce.jpg" alt="Pan Dulce Con Leche En Polvo" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Pan Dulce Con Leche En Polvo (Air Fryer)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 2 tazas de harina, ½ taza de leche en polvo, ½ taza de azúcar, 1 huevo...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-pan-dulce-con-leche-en-polvo-airfryer" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="airfryer" style="padding: 0; text-align: left; display: none;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/brownies.jpg" alt="Brownies Con Leche En Polvo" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Brownies Con Leche En Polvo (Air Fryer)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de harina, ½ taza de leche en polvo, ½ taza de azúcar, ¼ taza de cocoa...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-brownies-con-leche-en-polvo-airfryer" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="airfryer" style="padding: 0; text-align: left; display: none;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/galletas_de_coco.jpg" alt="Galletas De Coco" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Galletas De Coco (Air Fryer)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de coco rallado, ½ taza de leche en polvo, ½ taza de azúcar, 1 huevo</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-galletas-de-coco-airfryer" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
+      <div class="info-card recipe-card" data-category="airfryer" style="padding: 0; text-align: left; display: none;">
+        <div class="card-image-wrapper">
+          <img src="imagenes/postre.jpg" alt="Postre Cremoso Tostado (Tipo Natilla Horneada)" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; height: calc(100% - 200px); justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Postre Cremoso Tostado (Tipo Natilla Horneada) (Air Fryer)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;"><strong>Ingredientes:</strong> 1 taza de leche en polvo, 1 taza de agua, ½ taza de azúcar, 2 huevos...</p>
+          </div>
+          <button class="cta-button btn-ver-mas" data-product-id="receta-postre-cremoso-tostado-tipo-natilla-horneada-airfryer" style="padding: 0.5rem 1rem; font-size: 0.9rem; border: none; cursor: pointer; align-self: flex-start; width: auto;">Ver Receta Completa</button>
+        </div>
+      </div>
+
     </div>
 </section>
 </main>
@@ -232,7 +521,29 @@
       </div>
     </footer>
 
-    <script>
+        <script>
+      function switchCategory(category) {
+        // Toggle active class on tab buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-tab') === category);
+        });
+        
+        // Toggle display of recipe cards
+        document.querySelectorAll('.recipe-card').forEach(card => {
+          if (card.getAttribute('data-category') === category) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 50);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(10px)';
+            card.style.display = 'none';
+          }
+        });
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
 
        

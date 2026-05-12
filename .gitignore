@@ -1,1 +1,12 @@
+# Carpetas de desarrollo (no requeridas para producción)
+herramientas_desarrollo/
+
+# Archivos temporales de sistema o editores
+.temp/
+.DS_Store
+Thumbs.db
+*.pyc
+__pycache__/
+
+# Respaldos de archivos originales
 PAGINA WEB CIDELAC/

@@ -35,7 +35,6 @@
               <li><a href="empresa.html" class="nav-link">EMPRESA</a></li>
               <li><a href="productos.html" class="nav-link">PRODUCTOS</a></li>
               <li><a href="recetas.html" class="nav-link">RECETAS</a></li>
-              <li><a href="tienda.html" class="nav-link">TIENDA VIRTUAL</a></li>
               <li><a href="blog.html" class="nav-link">BLOG</a></li>
               <li><a href="contacto.html" class="nav-link active">CONTÁCTENOS</a></li>
             </ul>
@@ -47,44 +46,135 @@
     <main class="container">
 <section id="contacto" class="section active">
         
-    <div class="split-section" style="margin-top: 2rem;">
-      <div class="split-text">
-        <h1 style="text-align: left; margin-bottom: 1rem;">Contáctenos</h1>
-        <p>¿Tienes alguna duda o quieres ser distribuidor? Escríbenos y nuestro equipo te responderá lo más pronto posible.</p>
-        
-        <form class="contact-form" style="margin-top: 2rem;">
+    <div style="text-align: center; margin-bottom: 3rem; padding-top: 2rem;">
+      <h1 style="display: inline-block; position: relative; padding-bottom: 15px; text-align: center;">
+        Contáctenos
+        <span style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--primary-gradient); border-radius: 2px;"></span>
+      </h1>
+      <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 1.5rem auto 0;">
+        ¿Tienes alguna duda o quieres ser distribuidor? Escríbenos y nuestro equipo te responderá lo más pronto posible.
+      </p>
+    </div>
+
+    <div class="contact-wrapper">
+      <!-- Columna Izquierda: Formulario -->
+      <div class="contact-form-container">
+        <h3>Escríbenos</h3>
+        <p>Completa el formulario y nos pondremos en contacto contigo.</p>
+        <form id="contact-form" autocomplete="off">
           <div class="form-group">
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo" required />
+            <label for="nombre">Nombre Completo</label>
+            <div class="input-wrapper">
+              <i class="fas fa-user"></i>
+              <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellidos" required />
+            </div>
           </div>
+          
+          <div class="form-group-row">
+            <div class="form-group">
+              <label for="correo">Correo Electrónico</label>
+              <div class="input-wrapper">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono / Celular</label>
+              <div class="input-wrapper">
+                <i class="fas fa-phone"></i>
+                <input type="tel" id="telefono" name="telefono" placeholder="Número de contacto" />
+              </div>
+            </div>
+          </div>
+
           <div class="form-group">
-            <input type="email" id="correo" name="correo" placeholder="Correo Electrónico" required />
+            <label for="mensaje">Tu Mensaje</label>
+            <div class="input-wrapper textarea-wrapper">
+              <i class="fas fa-comment-alt"></i>
+              <textarea id="mensaje" name="mensaje" placeholder="Escribe tu consulta o propuesta aquí..." required></textarea>
+            </div>
           </div>
-          <div class="form-group">
-            <input type="text" id="telefono" name="telefono" placeholder="Teléfono / Celular" />
-          </div>
-          <div class="form-group">
-            <textarea id="mensaje" name="mensaje" placeholder="Tu Mensaje" rows="5" required style="width: 100%; padding: 1rem; border-radius: 10px; border: 1px solid #ccc; font-family: inherit;"></textarea>
-          </div>
-          <button type="submit" class="cta-button" style="width: 100%;">Enviar Mensaje</button>
+
+          <button type="submit" class="cta-button">Enviar Mensaje</button>
         </form>
       </div>
-      
-      <div class="split-image" style="display: flex; flex-direction: column; gap: 2rem;">
-        <div class="placeholder-img" style="height: 300px;">
-          <i class="fas fa-headset"></i>
-          <span>[Espacio para Imagen: Servicio al Cliente]</span>
-        </div>
+
+      <!-- Columna Derecha: Información de Contacto -->
+      <div class="contact-form-container" style="display: flex; flex-direction: column; justify-content: flex-start; height: 100%;">
+        <h3><i class=""></i> Información de Contacto</h3>
+        <p>Nuestras sedes de atención y canales de contacto directo.</p>
         
-        <div class="info-card" style="padding: 2rem; text-align: left;">
-          <h3 style="margin-bottom: 1rem;"><i class="fas fa-map-marker-alt"></i> Nuestras Sedes</h3>
-          <p><strong>Cartagena - Bolívar:</strong> +57 3157546407</p>
-          <p><strong>Medellín - Antioquia:</strong> +57 3167402991</p>
-          <p><strong>Oriente Antioqueño:</strong> +57 3158515745</p>
-          <p><strong>Montería / Caucasia:</strong> +57 3021267391</p>
-          <p><strong>Bucaramanga - Cúcuta:</strong> +57 3002196903</p>
-          <br>
-          <p><i class="fas fa-envelope"></i> ventas@cidelac.com</p>
+        <div style="display: flex; flex-direction: column; gap: 2rem; flex: 1;">
+          <!-- Sede Principal -->
+          <div style="background: rgba(7, 140, 3, 0.05); padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(7, 140, 3, 0.1);">
+            <h4 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
+              <i class="fas fa-map-marker-alt"></i> Sede Principal
+            </h4>
+            <p style="margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.5; color: var(--text-main);">
+              <strong>Dirección:</strong> Cl. 30 #32a2, Br. El Prado, Cartagena de Indias, Bolívar, Colombia
+            </p>
+            <p style="margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.5; color: var(--text-main);">
+              <strong>Teléfono:</strong> +57 3157546407
+            </p>
+            <p style="margin-bottom: 0; font-size: 1rem; line-height: 1.5; color: var(--text-main);">
+              <strong>Email:</strong> <a href="mailto:cidelac.ger@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: 500;">cidelac.ger@gmail.com</a>
+            </p>
+          </div>
+
+          <!-- Otras Sedes y Contactos -->
+          <div style="background: rgba(255, 255, 255, 0.5); padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05); flex: 1; display: flex; flex-direction: column;">
+            <h4 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
+              <i class="fas fa-building"></i> Otras Sedes y Contactos
+            </h4>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.95rem; color: var(--text-main); flex: 1; justify-content: space-between;">
+              <li style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed rgba(0, 0, 0, 0.08); padding-bottom: 0.5rem;">
+                <span style="display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-city" style="color: var(--primary); font-size: 0.85rem; opacity: 0.8;"></i> <strong>Medellín</strong></span>
+                <span style="font-weight: 500;">+57 3167402991</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed rgba(0, 0, 0, 0.08); padding-bottom: 0.5rem;">
+                <span style="display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-city" style="color: var(--primary); font-size: 0.85rem; opacity: 0.8;"></i> <strong>Oriente Antioqueño</strong></span>
+                <span style="font-weight: 500;">+57 3158515745</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed rgba(0, 0, 0, 0.08); padding-bottom: 0.5rem;">
+                <span style="display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-city" style="color: var(--primary); font-size: 0.85rem; opacity: 0.8;"></i> <strong>Montería / Caucasia</strong></span>
+                <span style="font-weight: 500;">+57 3021267391</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed rgba(0, 0, 0, 0.08); padding-bottom: 0.5rem;">
+                <span style="display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-city" style="color: var(--primary); font-size: 0.85rem; opacity: 0.8;"></i> <strong>Bajo Cauca Antioqueño</strong></span>
+                <span style="font-weight: 500;">+57 3244540441</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed rgba(0, 0, 0, 0.08); padding-bottom: 0.5rem;">
+                <span style="display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-city" style="color: var(--primary); font-size: 0.85rem; opacity: 0.8;"></i> <strong>Urabá / Chocó</strong></span>
+                <span style="font-weight: 500;">+57 3021267390</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 0.2rem;">
+                <span style="display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-city" style="color: var(--primary); font-size: 0.85rem; opacity: 0.8;"></i> <strong>Bucaramanga - Cúcuta</strong></span>
+                <span style="font-weight: 500;">+57 3002196903</span>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Sección del Mapa Completo (Debajo de Formulario y Sedes) -->
+    <div class="map-section" style="margin-top: 3.5rem; width: 100%;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h2 style="font-size: 2.2rem; color: var(--primary); margin-bottom: 0.5rem; display: inline-block; position: relative;">
+          Nuestra Ubicación
+          <span style="position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--primary-gradient); border-radius: 2px;"></span>
+        </h2>
+      </div>
+      <div class="map-wrapper" style="border-radius: 24px; overflow: hidden; box-shadow: var(--glass-shadow); border: 2px solid rgba(255,255,255,0.5); background: white;">
+        <iframe 
+          src="https://maps.google.com/maps?q=Cl.%2030%20%2332a2,%20Br.%20El%20Prado,%20Cartagena%20de%20Indias,%20Bol%C3%ADvar&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+          width="100%" 
+          height="450" 
+          style="border:0; display: block;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </div>
     
@@ -260,7 +350,8 @@
       });
     </script>
 
-    <!-- Script para el modal de productos -->
+    <!-- Scripts para el formulario y el modal de productos -->
+    <script src="form.js" defer></script>
     <script src="modal.js" defer></script>
 
   </body>

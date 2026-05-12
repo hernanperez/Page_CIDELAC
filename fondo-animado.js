@@ -1,7 +1,7 @@
 const hero = document.getElementById('hero');
 const images = [
   'imagenes/hero1.jpg',
-  'imagenes/hero2.jpg',
+  'imagenes/hero2.webp',
   'imagenes/hero3.jpg'
 ];
 

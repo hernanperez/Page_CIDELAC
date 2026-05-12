@@ -427,10 +427,15 @@ h1 {
 /* Contact Form & Map */
 .contact-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 3rem;
-  align-items: center;
+  align-items: stretch;
   margin-top: 2rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  width: 100%;
 }
 
 .contact-form-container {
@@ -453,30 +458,16 @@ h1 {
 }
 
 .contact-map-container h3 {
-  margin-top: 150px;
+  margin-top: 0;
   color: #078C03;
   margin-bottom: 1rem;
-  text-align: center;
+  text-align: left;
   font-size: 1.8rem;
 }
 
 .contact-form .form-group {
   margin-bottom: 1.5rem;
 }
-
-  .contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
-    padding: 0 20px;
-    align-items: center;
-    justify-items: center;
-    max-width: 3200px;
-    margin: 0 auto;
-  
-            
-        }
 
         .contact-form-container {
             background: rgba(255, 255, 255, 0.95);
