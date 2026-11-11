@@ -475,6 +475,19 @@ document.addEventListener('DOMContentLoaded', () => {
           } else {
             modalProductImage.src = product.image;
           }
+        } else if (triggerElement) {
+          // For catalog cards: use the card's own image (except Merry keeps its default)
+          const catalogCard = triggerElement.closest('.catalog-card');
+          if (catalogCard && catalogCard.dataset.brand !== 'merry') {
+            const cardImg = catalogCard.querySelector('.catalog-card-image img');
+            if (cardImg) {
+              modalProductImage.src = cardImg.getAttribute('src');
+            } else {
+              modalProductImage.src = product.image;
+            }
+          } else {
+            modalProductImage.src = product.image;
+          }
         } else {
           modalProductImage.src = product.image;
         }

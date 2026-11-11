@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="comercializadoracidelac, cidelac, leche, lecheenpolvo, lecheentera, hogar, salud, lecheliquida, alimentos, funcional, congelados, bebidas, suplementos, niños, lacteos, nutricion, vacas, jugos, calidad, vasoleche, deliciosa, crema" />
+    <meta
+      name="keywords"
+      content="comercializadoracidelac, cidelac, leche, lecheenpolvo, lecheentera, hogar, salud, lecheliquida, alimentos, funcional, congelados, bebidas, suplementos, niños, lacteos, nutricion, vacas, jugos, calidad, vasoleche, deliciosa, crema"
+    />
     <title>Productos y Catálogo | Comercializadora Cidelac</title>
     <link rel="stylesheet" href="styles.css" />
     <!-- Google Fonts: Poppins -->
@@ -19,7 +22,276 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
     <style>
-     
+      /* ===== Catálogo de Productos ===== */
+      .catalog-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .filter-btn {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border: 2px solid var(--glass-border);
+        padding: 0.6rem 1.5rem;
+        border-radius: 50px;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text-main);
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: rgba(7, 140, 3, 0.05);
+      }
+
+      .filter-btn.active {
+        background: var(--primary-gradient);
+        color: white;
+        border-color: var(--primary);
+        box-shadow: 0 4px 15px rgba(7, 140, 3, 0.3);
+      }
+
+      /* Sección de marca */
+      .brand-section {
+        margin-bottom: 3rem;
+      }
+
+      .brand-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 3px solid var(--primary);
+      }
+
+      .brand-header h2 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+
+      .brand-badge {
+        display: inline-block;
+        background: var(--primary-gradient);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* Grid del catálogo */
+      .catalog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .catalog-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        box-shadow: var(--glass-shadow);
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .catalog-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(7, 140, 3, 0.15);
+        background: rgba(255, 255, 255, 0.98);
+      }
+
+      .catalog-card-image {
+        width: 100%;
+        height: 260px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          135deg,
+          #2d6a2e 0%,
+          #1a4a1a 50%,
+          #3a7d3a 100%
+        );
+        padding: 1rem;
+      }
+
+      .catalog-card-image img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+      }
+
+      .catalog-card:hover .catalog-card-image img {
+        transform: scale(1.08);
+      }
+
+      .catalog-card-body {
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
+      .catalog-card-body h3 {
+        color: var(--primary);
+        font-size: 1.05rem;
+        margin-bottom: 0.4rem;
+        font-weight: 600;
+      }
+
+      .catalog-card-body .product-presentation {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .catalog-card-body p.product-desc {
+        color: var(--text-muted);
+        font-size: 0.88rem;
+        line-height: 1.5;
+        flex-grow: 1;
+      }
+
+      .product-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.75rem;
+      }
+
+      .product-tag {
+        display: inline-block;
+        background: rgba(7, 140, 3, 0.08);
+        color: var(--primary);
+        padding: 0.2rem 0.6rem;
+        border-radius: 12px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+      }
+
+      .product-tag.industrial {
+        background: rgba(245, 158, 11, 0.1);
+        color: #d97706;
+      }
+
+      .catalog-card .btn-ver-mas {
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+        border-radius: 12px;
+        padding: 0.7rem 1rem;
+        font-weight: 600;
+      }
+
+      /* Animación de entrada */
+      .catalog-card {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: catalogFadeIn 0.5s ease forwards;
+      }
+
+      @keyframes catalogFadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Delay escalonado */
+      .catalog-card:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      .catalog-card:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .catalog-card:nth-child(3) {
+        animation-delay: 0.15s;
+      }
+      .catalog-card:nth-child(4) {
+        animation-delay: 0.2s;
+      }
+      .catalog-card:nth-child(5) {
+        animation-delay: 0.25s;
+      }
+      .catalog-card:nth-child(6) {
+        animation-delay: 0.3s;
+      }
+      .catalog-card:nth-child(7) {
+        animation-delay: 0.35s;
+      }
+      .catalog-card:nth-child(8) {
+        animation-delay: 0.4s;
+      }
+
+      /* Ocultar tarjetas filtradas */
+      .catalog-card.hidden {
+        display: none;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .catalog-grid {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 1rem;
+        }
+
+        .catalog-card-image {
+          height: 200px;
+        }
+
+        .brand-header h2 {
+          font-size: 1.4rem;
+        }
+
+        .catalog-filters {
+          gap: 0.5rem;
+        }
+
+        .filter-btn {
+          padding: 0.5rem 1rem;
+          font-size: 0.85rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .catalog-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 0.75rem;
+        }
+
+        .catalog-card-image {
+          height: 160px;
+          padding: 0.5rem;
+        }
+
+        .catalog-card-body {
+          padding: 0.75rem;
+        }
+
+        .catalog-card-body h3 {
+          font-size: 0.9rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -27,13 +299,18 @@
       <div class="container">
         <div class="header-content">
           <div class="logo">
-            <img src="imagenes/LogoCidelac12.png" alt="Logo Comercializadora CIDELAC" />
+            <img
+              src="imagenes/LogoCidelac12.png"
+              alt="Logo Comercializadora CIDELAC"
+            />
           </div>
           <nav>
             <ul>
               <li><a href="index.html" class="nav-link">INICIO</a></li>
               <li><a href="empresa.html" class="nav-link">EMPRESA</a></li>
-              <li><a href="productos.html" class="nav-link active">PRODUCTOS</a></li>
+              <li>
+                <a href="productos.html" class="nav-link active">PRODUCTOS</a>
+              </li>
               <li><a href="recetas.html" class="nav-link">RECETAS</a></li>
               <li><a href="blog.html" class="nav-link">BLOG</a></li>
               <li><a href="contacto.html" class="nav-link">CONTÁCTENOS</a></li>
@@ -44,71 +321,621 @@
     </header>
 
     <main class="container">
-<section id="productos" class="section active">
-        
-    <div class="split-section" style="margin-top: 2rem; margin-bottom: 4rem;">
-      <div class="split-text">
-        <h1 style="text-align: left; margin-bottom: 1rem;">Catálogo de Productos</h1>
-        <p>Conoce nuestra amplia variedad de productos diseñados para brindar la mejor nutrición, sabor y rendimiento. Seleccionamos cuidadosamente nuestras materias primas para garantizar tu satisfacción.</p>
-      </div>
-      <div class="split-image">
-        <img src="imagenes/marcas.webp" alt="Marcas - Comercializadora Cidelac" />
-      </div>
-    </div>
-    
-
-        <!-- Added .products-grid for layout -->
-        <div class="products-grid">
-          <div class="product-card">
-            <img src="imagenes/P1.webp" alt="Catálogo Cidelac" class="product-image">
-            <h3>CATÁLOGO CIDELAC</h3>
+      <section id="productos" class="section active">
+        <div
+          class="split-section"
+          style="margin-top: 2rem; margin-bottom: 2rem"
+        >
+          <div class="split-text">
+            <h1 style="text-align: left; margin-bottom: 1rem">
+              Catálogo de Productos
+            </h1>
             <p>
-              Amplia gama de productos lácteos de la marca CIDELAC, reconocida
-              por su calidad y frescura.
+              Conoce nuestra amplia variedad de productos diseñados para brindar
+              la mejor nutrición, sabor y rendimiento. Seleccionamos
+              cuidadosamente nuestras materias primas para garantizar tu
+              satisfacción.
             </p>
-            <!-- These list items will be replaced by modal content -->
-            <!-- <ul>
-              <li>Leche fresca</li>
-              <li>Yogur natural y con sabores</li>
-              <li>Quesos frescos y madurados</li>
-              <li>Mantequilla</li>
-            </ul> -->
-            <button class="btn-ver-mas" data-product-id="cidelac-catalogo">Ver más</button>
+          </div>
+          <div class="split-image">
+            <img
+              src="imagenes/marcas.webp"
+              alt="Marcas - Comercializadora Cidelac"
+            />
+          </div>
+        </div>
+
+        <!-- Filtros del catálogo -->
+        <div class="catalog-filters">
+          <button class="filter-btn active" data-filter="todos">Todos</button>
+          <button class="filter-btn" data-filter="cidelac">Cidelac</button>
+          <button class="filter-btn" data-filter="merry">Merry</button>
+          <button class="filter-btn" data-filter="hogar">Uso Hogar</button>
+          <button class="filter-btn" data-filter="industrial">
+            Uso Industrial
+          </button>
+        </div>
+
+        <!-- ===== MARCA CIDELAC =====--> 
+        <div class="brand-section" id="seccion-cidelac">
+          <div class="brand-header">
+            <h2><i class="" style="margin-right: 0.5rem"></i>Línea Cidelac</h2>
+     <!--      <span class="brand-badge">La Crema y Nata de las Leches/span><-->
           </div>
 
-          <div class="product-card">
-            <img src="imagenes/merry.webp" alt="Productos Merry" class="product-image">
-            <h3>PRODUCTOS MERRY</h3>
-            <p>
-              Línea especial de productos lácteos MERRY, perfectos para toda la
-              familia.
-            </p>
-            <!-- <ul>
-              <li>Leche saborizada</li>
-              <li>Yogurt premium</li>
-              <li>Postres lácteos</li>
-              <li>Bebidas nutritivas</li>
-            </ul> -->
-            <button class="btn-ver-mas" data-product-id="merry-productos">Ver más</button>
+          <h3
+            style="
+              color: var(--text-muted);
+              margin-bottom: 1rem;
+              font-size: 1.1rem;
+            "
+          >
+            <i
+              class=""
+              style="margin-right: 0.5rem; color: var(--primary)"
+            ></i
+            >Presentaciones para el Hogar
+          </h3>
+          <div class="catalog-grid" style="margin-bottom: 2.5rem">
+            <!-- Cidelac Caja (sobres 125g) -->
+            <div
+              class="catalog-card"
+              data-brand="cidelac"
+              data-category="hogar"
+              data-product-id="prod-cidelac-caja"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/6.png"
+                  alt="Cidelac Leche Entera en Polvo - Caja con sobres de 125g"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Leche Entera en Polvo</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-box-open"></i> Caja con sobres de 125 g
+                  (Rinde 1 Litro c/u)</span
+                >
+                <p class="product-desc">
+                  Presentación en sobres individuales de 125 g. Cada sobre rinde 1 litro.
+                  Práctica para cada día.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag">Hogar</span>
+                  <span class="product-tag">Sobres</span>
+                  <span class="product-tag">Porcionado</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="cidelac-catalogo">
+                  Ver más
+                </button>
+              </div>
+            </div>
+
+            <!-- Cidelac 200g -->
+            <div
+              class="catalog-card"
+              data-brand="cidelac"
+              data-category="hogar"
+              data-product-id="prod-cidelac-200"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/5.png"
+                  alt="Cidelac Leche Entera en Polvo 200g"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Leche Entera en Polvo</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 200 g</span
+                >
+                <p class="product-desc">
+                  Presentación personal, ideal para probar o para consumo
+                  individual.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag">Hogar</span>
+                  <span class="product-tag">Individual</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="cidelac-catalogo">
+                  Ver más
+                </button>
+              </div>
+            </div>
+
+            <!-- Cidelac 360g -->
+            <div
+              class="catalog-card"
+              data-brand="cidelac"
+              data-category="hogar"
+              data-product-id="prod-cidelac-360"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/4.png"
+                  alt="Cidelac Leche Entera en Polvo 360g"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Leche Entera en Polvo</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 360 g</span
+                >
+                <p class="product-desc">
+                  Tamaño conveniente para consumo personal o parejas. Frescura
+                  garantizada.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag">Hogar</span>
+                  <span class="product-tag">Práctico</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="cidelac-catalogo">
+                  Ver más
+                </button>
+              </div>
+            </div>
+
+            <!-- Cidelac 380g -->
+            <div
+              class="catalog-card"
+              data-brand="cidelac"
+              data-category="hogar"
+              data-product-id="prod-cidelac-380"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/3.png"
+                  alt="Cidelac Leche Entera en Polvo 380g"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Leche Entera en Polvo</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 380 g</span
+                >
+                <p class="product-desc">
+                  Presentación mediana, perfecta para hogares pequeños o para
+                  llevar.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag">Hogar</span>
+                  <span class="product-tag">Práctico</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="cidelac-catalogo">
+                  Ver más
+                </button>
+              </div>
+            </div>
+
+            <!-- Cidelac 800g -->
+            <div
+              class="catalog-card"
+              data-brand="cidelac"
+              data-category="hogar"
+              data-product-id="prod-cidelac-800"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/2.png"
+                  alt="Cidelac Leche Entera en Polvo 800g"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Leche Entera en Polvo</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 800 g</span
+                >
+                <p class="product-desc">
+                  Excelente rendimiento en una presentación práctica para toda
+                  la familia.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag">Hogar</span>
+                  <span class="product-tag">Familiar</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="cidelac-catalogo">
+                  Ver más
+                </button>
+              </div>
+            </div>
+
+            <!-- Cidelac 900g -->
+            <div
+              class="catalog-card"
+              data-brand="cidelac"
+              data-category="hogar"
+              data-product-id="prod-cidelac-900"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/1.png"
+                  alt="Cidelac Leche Entera en Polvo 900g"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Leche Entera en Polvo</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 900 g</span
+                >
+                <p class="product-desc">
+                  Presentación ideal para el consumo familiar diario. Rica en
+                  vitaminas y minerales esenciales.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag">Hogar</span>
+                  <span class="product-tag">Familiar</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="cidelac-catalogo">
+                  Ver más
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div class="product-card">
-            <img src="imagenes/P2.webp" alt="Productos Combinados" class="product-image">
-            <h3>Uno para CIDELAC, MERRY</h3>
-            <p>
-              Productos especiales que combinan lo mejor de ambas marcas para
-              ofrecerte variedad y calidad.
-            </p>
-            <!-- <ul>
-              <li>Combos familiares</li>
-              <li>Paquetes promocionales</li>
-              <li>Productos estacionales</li>
-            </ul> -->
-            <button class="btn-ver-mas" data-product-id="cidelac-merry-combinado">Ver más</button>
+          <h3
+            style="
+              color: var(--text-muted);
+              margin-bottom: 1rem;
+              font-size: 1.1rem;
+            "
+          >
+            <i
+              class=""
+              style="margin-right: 0.5rem; color: #d97706"
+            ></i
+            >Presentaciones Industriales
+          </h3>
+          <div class="catalog-grid" style="margin-bottom: 2.5rem">
+            <!-- Cidelac 5 Kg Entera -->
+            <div
+              class="catalog-card"
+              data-brand="cidelac"
+              data-category="industrial"
+              data-product-id="prod-cidelac-5kg"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/9.png"
+                  alt="Cidelac Leche Entera en Polvo 5 Kg"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Leche Entera en Polvo</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 5 Kg</span
+                >
+                <p class="product-desc">
+                  Presentación institucional ideal para cafeterías, colegios y
+                  pequeños negocios.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag industrial">Industrial</span>
+                  <span class="product-tag industrial">Institucional</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="cidelac-catalogo">
+                  Ver más
+                </button>
+              </div>
+            </div>
+
+            <!-- Cidelac 12.5 Kg Entera -->
+            <div
+              class="catalog-card"
+              data-brand="cidelac"
+              data-category="industrial"
+              data-product-id="prod-cidelac-12kg"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/8.png"
+                  alt="Cidelac Leche Entera en Polvo 12.5 Kg"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Leche Entera en Polvo</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 12.5 Kg</span
+                >
+                <p class="product-desc">
+                  Formato semi-industrial perfecto para negocios medianos y
+                  establecimientos de comida.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag industrial">Industrial</span>
+                  <span class="product-tag industrial">Negocio</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="cidelac-catalogo">
+                  Ver más
+                </button>
+              </div>
+            </div>
+
+            <!-- Cidelac 25 Kg Entera -->
+            <div
+              class="catalog-card"
+              data-brand="cidelac"
+              data-category="industrial"
+              data-product-id="prod-cidelac-25kg"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/7.png"
+                  alt="Cidelac Leche Entera en Polvo 25 Kg"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Leche Entera en Polvo</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 25 Kg</span
+                >
+                <p class="product-desc">
+                  Presentación industrial para panaderías, restaurantes y
+                  programas de alimentación. Industria Colombiana.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag industrial">Industrial</span>
+                  <span class="product-tag industrial">Hostelería</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="cidelac-catalogo">
+                  Ver más
+                </button>
+              </div>
+            </div>
+
+            <!-- Cidelac Descremada 25 Kg -->
+            <div
+              class="catalog-card"
+              data-brand="cidelac"
+              data-category="industrial"
+              data-product-id="prod-cidelac-descremada"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/10.png"
+                  alt="Cidelac Leche en Polvo Descremada 25 Kg"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Leche en Polvo Descremada</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 25 Kg</span
+                >
+                <p class="product-desc">
+                  Menos grasa y más proteína. Ideal para procesos industriales y
+                  formulaciones especiales.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag industrial">Industrial</span>
+                  <span class="product-tag">Descremada</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="cidelac-catalogo">
+                  Ver más
+                </button>
+              </div>
+            </div>
+
+            <!-- Cidelac Leche Azucarada 25 Kg -->
+            <div
+              class="catalog-card"
+              data-brand="cidelac"
+              data-category="industrial"
+              data-product-id="prod-cidelac-azucarada"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/11.png"
+                  alt="Cidelac Leche Azucarada 25 Kg"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Leche Azucarada</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 25 Kg</span
+                >
+                <p class="product-desc">
+                  Leche en polvo azucarada lista para preparar. Perfecta para
+                  programas alimentarios y uso institucional.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag industrial">Industrial</span>
+                  <span class="product-tag">Azucarada</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="cidelac-catalogo">
+                  Ver más
+                </button>
+              </div>
+            </div>
+
+            <!-- Cidelac Fat Filled 25 Kg -->
+            <div
+              class="catalog-card"
+              data-brand="cidelac"
+              data-category="industrial"
+              data-product-id="prod-cidelac-fatfilled"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/12.png"
+                  alt="Cidelac Fat Filled 25 Kg"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Fat Filled</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 25 Kg</span
+                >
+                <p class="product-desc">
+                  Leche en polvo con grasa vegetal. Solución rentable para
+                  procesos industriales y manufactura de alimentos.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag industrial">Industrial</span>
+                  <span class="product-tag industrial">Manufactura</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="cidelac-catalogo">
+                  Ver más
+                </button>
+              </div>
+            </div>
+
+            <!-- Merry 25 Kg -->
+            <div
+              class="catalog-card"
+              data-brand="merry"
+              data-category="industrial"
+              data-product-id="prod-merry-25kg"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/17.png"
+                  alt="Merry Leche Entera en Polvo 25 Kg"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Merry - Leche Entera en Polvo</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 25 Kg</span
+                >
+                <p class="product-desc">
+                  Presentación industrial Merry. Calidad y sabor en cada vaso,
+                  para grandes volúmenes y programas institucionales.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag industrial">Industrial</span>
+                  <span class="product-tag industrial">Institucional</span>
+                  <span class="product-tag">Merry</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="merry-productos">
+                  Ver más
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== MARCA MERRY ===== -->
+        <div class="brand-section" id="seccion-merry">
+          <div class="brand-header">
+            <h2>
+              <i class="" style="margin-right: 0.5rem"></i>Línea
+              Merry
+            </h2>
+     <!--       <span class="brand-badge">Calidad y Sabor en Cada Vaso--></span>
+          </div>
+
+          <h3
+            style="
+              color: var(--text-muted);
+              margin-bottom: 1rem;
+              font-size: 1.1rem;
+            "
+          >
+            <i
+              class=""
+              style="margin-right: 0.5rem; color: var(--primary)"
+            ></i
+            >Presentaciones para el Hogar
+          </h3>
+          <div class="catalog-grid" style="margin-bottom: 2.5rem">
+            <!-- Merry 380g -->
+            <div
+              class="catalog-card"
+              data-brand="merry"
+              data-category="hogar"
+              data-product-id="prod-merry-bolsa"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/16.png"
+                  alt="Merry Leche Entera en Polvo 380g"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Leche Entera en Polvo</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 380 g</span
+                >
+                <p class="product-desc">
+                  Presentación económica y accesible con la misma calidad y sabor que
+                  caracteriza a Merry.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag">Hogar</span>
+                  <span class="product-tag">Económico</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="merry-productos">
+                  Ver más
+                </button>
+              </div>
+            </div>
+
+            <!-- Merry 500g -->
+            <div
+              class="catalog-card"
+              data-brand="merry"
+              data-category="hogar"
+              data-product-id="prod-merry-500"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/14.png"
+                  alt="Merry Leche Entera en Polvo 500g"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Leche Entera en Polvo</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 500 g</span
+                >
+                <p class="product-desc">
+                  Tamaño intermedio con la misma calidad Merry. Ideal para
+                  hogares pequeños.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag">Hogar</span>
+                  <span class="product-tag">Práctico</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="merry-productos">
+                  Ver más
+                </button>
+              </div>
+            </div>
+
+            <!-- Merry 900g -->
+            <div
+              class="catalog-card"
+              data-brand="merry"
+              data-category="hogar"
+              data-product-id="prod-merry-900"
+            >
+              <div class="catalog-card-image">
+                <img
+                  src="imagenes/productos/13.png"
+                  alt="Merry Leche Entera en Polvo 900g"
+                />
+              </div>
+              <div class="catalog-card-body">
+                <h3>Leche Entera en Polvo</h3>
+                <span class="product-presentation"
+                  ><i class="fas fa-weight-hanging"></i> 900 g</span
+                >
+                <p class="product-desc">
+                  Presentación familiar de leche entera Merry. Sabor auténtico y
+                  nutrición completa para toda la familia.
+                </p>
+                <div class="product-tags">
+                  <span class="product-tag">Hogar</span>
+                  <span class="product-tag">Familiar</span>
+                </div>
+                <button class="btn-ver-mas" data-product-id="merry-productos">
+                  Ver más
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-</main>
+    </main>
 
     <!-- WhatsApp Button -->
     <a
@@ -125,7 +952,12 @@
         <span class="close-button">&times;</span>
         <div class="modal-body-layout">
           <div class="modal-image-column">
-            <img id="modal-product-image" src="" alt="Product Image" class="product-image-modal">
+            <img
+              id="modal-product-image"
+              src=""
+              alt="Product Image"
+              class="product-image-modal"
+            />
           </div>
           <div class="modal-text-column">
             <h2 id="modal-product-title"></h2>
@@ -140,71 +972,87 @@
       </div>
     </div>
 
-
-     <div class="wave-container" id="waveContainer">
-        <!-- Onda 1 -->
-        <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
-            <path fill="rgba(7, 140, 3, 0.3)" 
-                  d="M0,60 Q300,0 600,60 T1200,60 L1200,180 L0,180 Z">
-                <animate attributeName="d"
-                         dur="20s"
-                         repeatCount="indefinite"
-                         values="M0,60 Q300,0 600,60 T1200,60 L1200,180 L0,180 Z;
+    <div class="wave-container" id="waveContainer">
+      <!-- Onda 1 -->
+      <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
+        <path
+          fill="rgba(7, 140, 3, 0.3)"
+          d="M0,60 Q300,0 600,60 T1200,60 L1200,180 L0,180 Z"
+        >
+          <animate
+            attributeName="d"
+            dur="20s"
+            repeatCount="indefinite"
+            values="M0,60 Q300,0 600,60 T1200,60 L1200,180 L0,180 Z;
                                 M0,75 Q300,120 600,75 T1200,75 L1200,180 L0,180 Z;
-                                M0,60 Q300,0 600,60 T1200,60 L1200,180 L0,180 Z"/>
-            </path>
-        </svg>
+                                M0,60 Q300,0 600,60 T1200,60 L1200,180 L0,180 Z"
+          />
+        </path>
+      </svg>
 
-        <!-- Onda 2 -->
-        <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
-            <path fill="rgba(7, 140, 3, 0.5)" 
-                  d="M0,90 Q300,150 600,90 T1200,90 L1200,180 L0,180 Z">
-                <animate attributeName="d"
-                         dur="15s"
-                         repeatCount="indefinite"
-                         values="M0,90 Q300,150 600,90 T1200,90 L1200,180 L0,180 Z;
+      <!-- Onda 2 -->
+      <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
+        <path
+          fill="rgba(7, 140, 3, 0.5)"
+          d="M0,90 Q300,150 600,90 T1200,90 L1200,180 L0,180 Z"
+        >
+          <animate
+            attributeName="d"
+            dur="15s"
+            repeatCount="indefinite"
+            values="M0,90 Q300,150 600,90 T1200,90 L1200,180 L0,180 Z;
                                 M0,105 Q300,30 600,105 T1200,105 L1200,180 L0,180 Z;
-                                M0,90 Q300,150 600,90 T1200,90 L1200,180 L0,180 Z"/>
-            </path>
-        </svg>
+                                M0,90 Q300,150 600,90 T1200,90 L1200,180 L0,180 Z"
+          />
+        </path>
+      </svg>
 
-        <!-- Onda 3 -->
-        <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
-            <path fill="rgba(7, 140, 3, 0.7)" 
-                  d="M0,120 Q300,60 600,120 T1200,120 L1200,180 L0,180 Z">
-                <animate attributeName="d"
-                         dur="18s"
-                         repeatCount="indefinite"
-                         values="M0,120 Q300,60 600,120 T1200,120 L1200,180 L0,180 Z;
+      <!-- Onda 3 -->
+      <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
+        <path
+          fill="rgba(7, 140, 3, 0.7)"
+          d="M0,120 Q300,60 600,120 T1200,120 L1200,180 L0,180 Z"
+        >
+          <animate
+            attributeName="d"
+            dur="18s"
+            repeatCount="indefinite"
+            values="M0,120 Q300,60 600,120 T1200,120 L1200,180 L0,180 Z;
                                 M0,135 Q300,195 600,135 T1200,135 L1200,180 L0,180 Z;
-                                M0,120 Q300,60 600,120 T1200,120 L1200,180 L0,180 Z"/>
-            </path>
-        </svg>
+                                M0,120 Q300,60 600,120 T1200,120 L1200,180 L0,180 Z"
+          />
+        </path>
+      </svg>
 
-        <!-- Onda 4 (Principal) -->
-        <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
-            <path fill="#078C03" 
-                  d="M0,150 Q300,90 600,150 T1200,150 L1200,180 L0,180 Z">
-                <animate attributeName="d"
-                         dur="12s"
-                         repeatCount="indefinite"
-                         values="M0,150 Q300,90 600,150 T1200,150 L1200,180 L0,180 Z;
+      <!-- Onda 4 (Principal) -->
+      <svg class="wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
+        <path
+          fill="#078C03"
+          d="M0,150 Q300,90 600,150 T1200,150 L1200,180 L0,180 Z"
+        >
+          <animate
+            attributeName="d"
+            dur="12s"
+            repeatCount="indefinite"
+            values="M0,150 Q300,90 600,150 T1200,150 L1200,180 L0,180 Z;
                                 M0,165 Q300,225 600,165 T1200,165 L1200,180 L0,180 Z;
-                                M0,150 Q300,90 600,150 T1200,150 L1200,180 L0,180 Z"/>
-            </path>
-        </svg>
+                                M0,150 Q300,90 600,150 T1200,150 L1200,180 L0,180 Z"
+          />
+        </path>
+      </svg>
     </div>
 
     <footer>
       <div class="container_footer">
         <div class="box_footer box_footer-logo">
           <div class="logo">
-            <a href="#"><img src="imagenes/LogoCidelac1.png" alt="Logo Cidelac" /></a>
+            <a href="#"
+              ><img src="imagenes/LogoCidelac1.png" alt="Logo Cidelac"
+            /></a>
           </div>
-          
         </div>
 
-         <div class="box_footer">
+        <div class="box_footer">
           <h2>Empresa</h2>
           <div class="box_footer-description">
             <p>
@@ -212,16 +1060,15 @@
               sabor para toda la familia.
             </p>
           </div>
-          
         </div>
-          
+
         <div class="box_footer">
           <h2>Contacto</h2>
-          <p>Cartagena - Bolívar +57  3157546407</p>
+          <p>Cartagena - Bolívar +57 3157546407</p>
           <p>Medellin - Antioquia +57 3167402991</p>
           <p>Oriente - Antioqueño +57 3158515745</p>
-          <p>Monteria / Caucasia +57  3021267391</p>
-          <p>Bajo Cauca Antioqueño +57 3244540441 </p>
+          <p>Monteria / Caucasia +57 3021267391</p>
+          <p>Bajo Cauca Antioqueño +57 3244540441</p>
           <p>Uraba / Choco +57 3021267390</p>
           <p>Bucaramanga - Cúcuta +57 3002196903</p>
         </div>
@@ -257,8 +1104,106 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // --- Catalog Filter Logic ---
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const catalogCards = document.querySelectorAll(".catalog-card");
+        const brandSections = document.querySelectorAll(".brand-section");
 
-       
+        filterButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            // Update active state
+            filterButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const filter = btn.dataset.filter;
+
+            if (filter === "todos") {
+              // Show everything
+              catalogCards.forEach((card) => {
+                card.classList.remove("hidden");
+                card.style.animation = "none";
+                card.offsetHeight; // trigger reflow
+                card.style.animation = "";
+              });
+              brandSections.forEach((section) => (section.style.display = ""));
+              // Show all sub-headers
+              document
+                .querySelectorAll(".brand-section h3[style]")
+                .forEach((h) => (h.style.display = ""));
+              document
+                .querySelectorAll(".brand-section .catalog-grid")
+                .forEach((g) => (g.style.display = ""));
+            } else if (filter === "cidelac" || filter === "merry") {
+              // Filter by brand
+              catalogCards.forEach((card) => {
+                if (card.dataset.brand === filter) {
+                  card.classList.remove("hidden");
+                  card.style.animation = "none";
+                  card.offsetHeight;
+                  card.style.animation = "";
+                } else {
+                  card.classList.add("hidden");
+                }
+              });
+              brandSections.forEach((section) => {
+                const id = section.id;
+                if (id === "seccion-" + filter) {
+                  section.style.display = "";
+                } else {
+                  section.style.display = "none";
+                }
+              });
+              // Show all sub-headers within the visible section
+              document
+                .querySelectorAll("#seccion-" + filter + " h3[style]")
+                .forEach((h) => (h.style.display = ""));
+              document
+                .querySelectorAll("#seccion-" + filter + " .catalog-grid")
+                .forEach((g) => (g.style.display = ""));
+            } else {
+              // Filter by category (hogar or industrial)
+              brandSections.forEach((section) => (section.style.display = ""));
+
+              catalogCards.forEach((card) => {
+                if (card.dataset.category === filter) {
+                  card.classList.remove("hidden");
+                  card.style.animation = "none";
+                  card.offsetHeight;
+                  card.style.animation = "";
+                } else {
+                  card.classList.add("hidden");
+                }
+              });
+
+              // Hide empty sub-sections
+              document.querySelectorAll(".catalog-grid").forEach((grid) => {
+                const visibleCards = grid.querySelectorAll(
+                  ".catalog-card:not(.hidden)",
+                );
+                const prevH3 = grid.previousElementSibling;
+                if (visibleCards.length === 0) {
+                  grid.style.display = "none";
+                  if (prevH3 && prevH3.tagName === "H3")
+                    prevH3.style.display = "none";
+                } else {
+                  grid.style.display = "";
+                  if (prevH3 && prevH3.tagName === "H3")
+                    prevH3.style.display = "";
+                }
+              });
+
+              // Hide brand sections with no visible cards at all
+              brandSections.forEach((section) => {
+                const visibleInSection = section.querySelectorAll(
+                  ".catalog-card:not(.hidden)",
+                );
+                if (visibleInSection.length === 0) {
+                  section.style.display = "none";
+                }
+              });
+            }
+          });
+        });
 
         // --- Hero Slider ---
         let currentSlide = 0;
@@ -275,12 +1220,10 @@
         if (slides.length > 1) {
           setInterval(nextSlide, slideInterval);
         }
-
       });
     </script>
 
     <!-- Script para el modal de productos -->
     <script src="modal.js" defer></script>
-
   </body>
 </html>

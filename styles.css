@@ -78,7 +78,7 @@ header::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
 }
 
 .logo {
@@ -93,7 +93,7 @@ header::after {
   
   
 .logo img {
-  height: 70px;
+  height: 95px;
   width: auto;
   transition: transform 0.3s ease;
 }
@@ -123,7 +123,7 @@ nav a.active {
 
 /* Main Content */
 main {
-  margin-top: 110px; /* Increased to prevent overlap with taller header */
+  margin-top: 130px; /* Increased to prevent overlap with taller header */
   padding: 2rem 0;
 }
 
@@ -1398,6 +1398,8 @@ footer {
         width: 100%; /* Asegura que la imagen ocupe todo el espacio de su columna */
         height: auto;
         border-radius: 8px;
+        background: linear-gradient(135deg, #2d6a2e 0%, #1a4a1a 50%, #3a7d3a 100%);
+        padding: 1rem;
       }
 
       .modal-content h2 {
